@@ -44,7 +44,6 @@ for year in range(2018, 2024):
                     print(f'No available TeamRadio feed for {session["Path"]}')
                     continue
 
-
                 # load TeamRadio
                 print(f'Loading TeamRadio data for {session["Path"]}')
                 team_radio_response = requests.get(base_url.format(session['Path'] + (available_data_endpoints_json['Feeds']['TeamRadio']['KeyFramePath'])))
@@ -59,7 +58,6 @@ for year in range(2018, 2024):
                 for capture in team_radio_captures:
                     current_radio_message_response = requests.get(base_url.format(session['Path'] + capture['Path']))
                     if current_radio_message_response.status_code == 200:
-                        print(capture['Path'])
                         mp3_audio_file_path = audio_data_folder + capture['Path'].split('/')[1]
                         wav_audio_file_path = audio_data_folder + capture['Path'].split('/')[1].replace('.mp3', '.wav')
 
@@ -67,6 +65,8 @@ for year in range(2018, 2024):
                             file.write(current_radio_message_response.content)
 
                         audio = AudioSegment.from_mp3(mp3_audio_file_path)
+                        audio_duration_seconds = len(audio) / 1000
+                        print(f"{capture['Path']} audio duration: {audio_duration_seconds}")
 
                         audio.export(wav_audio_file_path, format="wav")
 
@@ -74,18 +74,27 @@ for year in range(2018, 2024):
 
                         text = ''
                         with sr.AudioFile(wav_audio_file_path) as source:
-                            recognizer.adjust_for_ambient_noise(source) # TODO this probably should be removed because it does not capture the whole voice message (test it with perez in 2022 or 2018) 
+                            # recognizer.adjust_for_ambient_noise(source) # TODO this probably should be removed because it does not capture the whole voice message (test it with perez in 2022 or 2018)
+                            if audio_duration_seconds > 30:
+                                for chunk in range(round(audio_duration_seconds / 30.0)):
+                                    audio_data = recognizer.record(source, duration=30)
+                                    try:
+                                        transcript = recognizer.recognize_google(audio_data)
+                                        text += transcript + " "
+                                    except sr.UnknownValueError:
+                                        print("Speech recognition could not understand audio")
+                                    except sr.RequestError as e:
+                                        print(f"Could not request results; {e}")
+                            else:
+                                audio_data = recognizer.record(source)
+                                try:
+                                    text = recognizer.recognize_google(audio_data)
+                                except sr.UnknownValueError:
+                                    print("Speech recognition could not understand audio")
+                                except sr.RequestError as e:
+                                    print(f"Could not request results; {e}")
 
-                            audio_data = recognizer.record(source)
-
-                            try:
-                                text = recognizer.recognize_google(audio_data)
-                            except sr.UnknownValueError:
-                                print("Speech recognition could not understand audio")
-                            except sr.RequestError as e:
-                                print(f"Could not request results; {e}")
-
-                        # TODO try using multithreading after the file is read for each feature category and append on each iteration the csv
+                        # TODO try using multithreading after the file is read for each feature category and append on each iteration the csv - might not be needed the socket is the most time consuming - check again
                         y, sampling_rate = librosa.load(wav_audio_file_path)
 
                         stft = np.abs(librosa.stft(y))
@@ -108,8 +117,7 @@ for year in range(2018, 2024):
                         flattened_features = all_features.ravel()
 
                         df.loc[len(df)] = [text, wav_audio_file_path.split('_')[1][5:-2], ','.join([str(value) for value in flattened_features])]
+                        df.to_csv('data.csv', index=False)
                         os.remove(wav_audio_file_path)
                     else:
                         print(f'Could not download {capture["Path"]}')
-
-df.to_csv('data.csv', index=False)
