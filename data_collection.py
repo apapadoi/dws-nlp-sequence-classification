@@ -1,3 +1,6 @@
+import sys
+
+import pydub.exceptions
 import requests
 import json
 import codecs
@@ -13,7 +16,13 @@ import speech_recognition as sr
 from pydub import AudioSegment # NOTE: needs installation of ffmpeg
 import librosa
 
-df = pd.DataFrame([], columns=['text', 'label', 'features'])
+if 'continue' in sys.argv:
+    df = pd.read_csv('./data.csv')
+    starting_year = 2022
+else:
+    df = pd.DataFrame([], columns=['text', 'label', 'features'])
+    starting_year = 2018
+
 base_url = 'https://livetiming.formula1.com/static/{}'
 recognizer = sr.Recognizer()
 audio_data_folder = './audio_data/'
@@ -21,7 +30,8 @@ audio_data_folder = './audio_data/'
 if not os.path.exists(audio_data_folder):
     os.makedirs(audio_data_folder)
 
-for year in range(2018, 2024):
+found_belgian_2022 = False
+for year in range(starting_year, 2024):
     current_url = base_url.format(year) + '/Index.json'
     print(current_url)
     response = requests.get(current_url)
@@ -29,6 +39,10 @@ for year in range(2018, 2024):
     response_json = json.loads(decoded_response)
     response_initial = response_json
     for weekend in response_initial['Meetings']:
+        if not found_belgian_2022 and year == 2022 and 'Belgian' not in [session['Path'].split('_')[1] for session in weekend['Sessions']]:
+            continue
+
+        found_belgian_2022 = True
         for session in weekend['Sessions']:
             if 'Path' not in session:
                 print(f'No available path for {weekend["OfficialName"]}')
@@ -63,8 +77,12 @@ for year in range(2018, 2024):
 
                         with open(mp3_audio_file_path, 'wb') as file:
                             file.write(current_radio_message_response.content)
+                        try:
+                            audio = AudioSegment.from_mp3(mp3_audio_file_path)
+                        except pydub.exceptions.CouldntDecodeError:
+                            print(f'Could not decode')
+                            continue
 
-                        audio = AudioSegment.from_mp3(mp3_audio_file_path)
                         audio_duration_seconds = len(audio) / 1000
                         print(f"{capture['Path']} audio duration: {audio_duration_seconds}")
 
@@ -74,7 +92,6 @@ for year in range(2018, 2024):
 
                         text = ''
                         with sr.AudioFile(wav_audio_file_path) as source:
-                            # recognizer.adjust_for_ambient_noise(source) # TODO this probably should be removed because it does not capture the whole voice message (test it with perez in 2022 or 2018)
                             if audio_duration_seconds > 30:
                                 for chunk in range(round(audio_duration_seconds / 30.0)):
                                     audio_data = recognizer.record(source, duration=30)
@@ -94,7 +111,6 @@ for year in range(2018, 2024):
                                 except sr.RequestError as e:
                                     print(f"Could not request results; {e}")
 
-                        # TODO try using multithreading after the file is read for each feature category and append on each iteration the csv - might not be needed the socket is the most time consuming - check again
                         y, sampling_rate = librosa.load(wav_audio_file_path)
 
                         stft = np.abs(librosa.stft(y))
@@ -107,6 +123,7 @@ for year in range(2018, 2024):
                         mfccs = librosa.feature.mfcc(y=y, sr=sampling_rate, n_mfcc=13)
                         average_mfcss = np.array([np.mean(row) for row in mfccs])
 
+                        # TODO might need to average per column - calculate total audio duration of dataset in seconds as well as total size of audio files collected
                         pitches, _ = librosa.piptrack(y=y, sr=sampling_rate)
                         average_pitches = np.array([np.mean(row) for row in pitches])
 
