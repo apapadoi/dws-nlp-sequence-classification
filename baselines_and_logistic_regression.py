@@ -14,14 +14,14 @@ RANDOM_STATE = 42
 
 df = pd.read_csv('data_processed.csv')
 dataset_description_list = [
-    # 'text',
-    # 'text_stft',
-    # 'text_stft_spectrogram',
-    # 'text_stft_spectrogram_mfccs',
-    # 'text_stft_spectrogram_mfccs_pitches',
+    'text',
+    'text_stft',
+    'text_stft_spectrogram',
+    'text_stft_spectrogram_mfccs',
+    'text_stft_spectrogram_mfccs_pitches',
     'text_stft_spectrogram_mfccs_pitches_energy'
 ]
-
+# TODO might need resampling here too
 for dataset_description in dataset_description_list:
     columns_to_use = [column for column in df.columns for feature_category in dataset_description.split('_') if feature_category in column]
     current_df = df[columns_to_use]

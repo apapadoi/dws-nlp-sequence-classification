@@ -1,54 +1,183 @@
 Using GPU available:  NVIDIA GeForce RTX 3090
 Using  2 GPUs
 Custom classifier input size: 768
-############################ text results ##################################
-Epoch [1/100] - Training Loss: 3.6395 - Validation Loss: 3.6273
-Epoch [2/100] - Training Loss: 3.6225 - Validation Loss: 3.6220
-Epoch [3/100] - Training Loss: 3.6150 - Validation Loss: 3.6152
-Epoch [4/100] - Training Loss: 3.6088 - Validation Loss: 3.6101
-Epoch [5/100] - Training Loss: 3.6006 - Validation Loss: 3.6081
-Epoch [6/100] - Training Loss: 3.5961 - Validation Loss: 3.6062
-Epoch [7/100] - Training Loss: 3.5928 - Validation Loss: 3.6047
-Epoch [8/100] - Training Loss: 3.5902 - Validation Loss: 3.6037
-Epoch [9/100] - Training Loss: 3.5881 - Validation Loss: 3.6030
-Epoch [10/100] - Training Loss: 3.5862 - Validation Loss: 3.6024
-Epoch [11/100] - Training Loss: 3.5845 - Validation Loss: 3.6019
-Epoch [12/100] - Training Loss: 3.5830 - Validation Loss: 3.6015
-Epoch [13/100] - Training Loss: 3.5817 - Validation Loss: 3.6012
-Epoch [14/100] - Training Loss: 3.5804 - Validation Loss: 3.6009
-Epoch [15/100] - Training Loss: 3.5793 - Validation Loss: 3.6007
-Epoch [16/100] - Training Loss: 3.5782 - Validation Loss: 3.6006
-Epoch [17/100] - Training Loss: 3.5772 - Validation Loss: 3.6004
-Epoch [18/100] - Training Loss: 3.5763 - Validation Loss: 3.6003
-Epoch [19/100] - Training Loss: 3.5754 - Validation Loss: 3.6001
-Epoch [20/100] - Training Loss: 3.5745 - Validation Loss: 3.6000
-Epoch [21/100] - Training Loss: 3.5735 - Validation Loss: 3.6000
-Epoch [22/100] - Training Loss: 3.5726 - Validation Loss: 3.6001
-Epoch [23/100] - Training Loss: 3.5717 - Validation Loss: 3.6002
-Epoch [24/100] - Training Loss: 3.5709 - Validation Loss: 3.6002
-Epoch [25/100] - Training Loss: 3.5702 - Validation Loss: 3.6001
-Epoch [26/100] - Training Loss: 3.5696 - Validation Loss: 3.6000
-Epoch [27/100] - Training Loss: 3.5690 - Validation Loss: 3.5998
-Epoch [28/100] - Training Loss: 3.5685 - Validation Loss: 3.5997
-Epoch [29/100] - Training Loss: 3.5680 - Validation Loss: 3.5998
-Epoch [30/100] - Training Loss: 3.5675 - Validation Loss: 3.5998
-Epoch [31/100] - Training Loss: 3.5671 - Validation Loss: 3.5998
-Epoch [32/100] - Training Loss: 3.5668 - Validation Loss: 3.5995
-Epoch [33/100] - Training Loss: 3.5664 - Validation Loss: 3.5992
-Epoch [34/100] - Training Loss: 3.5657 - Validation Loss: 3.5993
-Epoch [35/100] - Training Loss: 3.5651 - Validation Loss: 3.5996
-Epoch [36/100] - Training Loss: 3.5644 - Validation Loss: 3.6000
-Epoch [37/100] - Training Loss: 3.5639 - Validation Loss: 3.6001
-Epoch [38/100] - Training Loss: 3.5636 - Validation Loss: 3.6000
-Epoch [39/100] - Training Loss: 3.5631 - Validation Loss: 3.5999
-Epoch [40/100] - Training Loss: 3.5624 - Validation Loss: 3.5997
-Epoch [41/100] - Training Loss: 3.5619 - Validation Loss: 3.5995
-Epoch [42/100] - Training Loss: 3.5615 - Validation Loss: 3.5993
-Epoch [43/100] - Training Loss: 3.5610 - Validation Loss: 3.5993
-Epoch [44/100] - Training Loss: 3.5605 - Validation Loss: 3.5994
-Epoch [45/100] - Training Loss: 3.5600 - Validation Loss: 3.5995
-Epoch [46/100] - Training Loss: 3.5597 - Validation Loss: 3.5996
-Traceback (most recent call last):
-  File "/home/apapadoi/Documents/dws-nlp-sequence-classification/bert.py", line 136, in <module>
-    loss = criterion(own_model_outputs, torch.tensor(batch_y_train.tolist()).to(device))
-KeyboardInterrupt
+############################ bert-base-uncased text results ##################################
+Epoch [1/100] - Training Loss: 69366.29663 - Average Training Loss: 3.64147 - Validation Loss: 17326.46124 - Average Validation Loss: 3.63772
+Updating learning rate to 0.1
+Epoch [2/100] - Training Loss: 69294.68826 - Average Training Loss: 3.63771 - Validation Loss: 17326.46662 - Average Validation Loss: 3.63772
+Updating learning rate to 0.1
+Epoch [3/100] - Training Loss: 69294.68969 - Average Training Loss: 3.63771 - Validation Loss: 17326.46271 - Average Validation Loss: 3.63772
+Updating learning rate to 0.1
+Epoch [4/100] - Training Loss: 69294.68657 - Average Training Loss: 3.63771 - Validation Loss: 17326.46686 - Average Validation Loss: 3.63772
+Updating learning rate to 0.1
+Epoch [5/100] - Training Loss: 69294.68694 - Average Training Loss: 3.63771 - Validation Loss: 17326.46515 - Average Validation Loss: 3.63772
+Updating learning rate to 0.1
+Epoch [6/100] - Training Loss: 69294.68596 - Average Training Loss: 3.63771 - Validation Loss: 17326.45441 - Average Validation Loss: 3.63772
+Updating learning rate to 0.1
+Epoch [7/100] - Training Loss: 69294.69602 - Average Training Loss: 3.63771 - Validation Loss: 17326.44635 - Average Validation Loss: 3.63772
+Updating learning rate to 0.1
+Epoch [8/100] - Training Loss: 69294.68582 - Average Training Loss: 3.63771 - Validation Loss: 17326.47248 - Average Validation Loss: 3.63772
+Updating learning rate to 0.1
+Epoch [9/100] - Training Loss: 69294.68753 - Average Training Loss: 3.63771 - Validation Loss: 17326.47272 - Average Validation Loss: 3.63772
+Updating learning rate to 0.1
+Epoch [10/100] - Training Loss: 69294.67851 - Average Training Loss: 3.63771 - Validation Loss: 17326.47223 - Average Validation Loss: 3.63772
+Updating learning rate to 0.1
+Epoch [11/100] - Training Loss: 69294.70194 - Average Training Loss: 3.63771 - Validation Loss: 17326.47272 - Average Validation Loss: 3.63772
+Updating learning rate to 0.1
+Epoch [12/100] - Training Loss: 69294.63176 - Average Training Loss: 3.63770 - Validation Loss: 17326.47240 - Average Validation Loss: 3.63772
+Updating learning rate to 0.1
+Epoch [13/100] - Training Loss: 69296.68405 - Average Training Loss: 3.63781 - Validation Loss: 17326.47097 - Average Validation Loss: 3.63772
+Updating learning rate to 0.1
+Epoch [14/100] - Training Loss: 69296.58252 - Average Training Loss: 3.63781 - Validation Loss: 17326.47248 - Average Validation Loss: 3.63772
+Updating learning rate to 0.1
+Epoch [15/100] - Training Loss: 69293.82697 - Average Training Loss: 3.63766 - Validation Loss: 17327.47150 - Average Validation Loss: 3.63793
+Updating learning rate to 0.1
+Epoch [16/100] - Training Loss: 69297.70311 - Average Training Loss: 3.63787 - Validation Loss: 17327.43659 - Average Validation Loss: 3.63792
+Updating learning rate to 0.1
+Epoch [17/100] - Training Loss: 69297.69158 - Average Training Loss: 3.63787 - Validation Loss: 17327.31964 - Average Validation Loss: 3.63790
+Updating learning rate to 0.1
+Early stopping - Epoch: 17/100, Best loss: 17326.446352005005
+Total time for fitting: 1489.3161 seconds
+Macro F1 Score dense layer: 0.00426660516605166
+/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+              precision    recall  f1-score   support
+
+      ALEALB       0.00      0.00      0.00       214
+      ANTGIO       0.00      0.00      0.00        48
+      BREHAR       0.00      0.00      0.00        10
+      CARSAI       0.00      0.00      0.00       396
+      CHALEC       0.00      0.00      0.00       352
+      DANKVY       0.00      0.00      0.00        69
+      DANRIC       0.00      0.00      0.00       318
+      ESTOCO       0.00      0.00      0.00       251
+      FERALO       0.00      0.00      0.00       165
+      GEORUS       0.00      0.00      0.00       268
+      GUAZHO       0.00      0.00      0.00        95
+      ISAHAD       0.00      0.00      0.00         2
+      JACAIT       0.00      0.00      0.00         4
+      JACDOO       0.00      0.00      0.00         3
+      KEVMAG       0.00      0.00      0.00       152
+      KIMRAI       0.00      0.00      0.00       117
+      LANNOR       0.00      0.00      0.00       353
+      LANSTR       0.00      0.00      0.00       235
+      LEWHAM       0.00      0.00      0.00       466
+      LIALAW       0.00      0.00      0.00        18
+      LOGSAR       0.00      0.00      0.00        52
+      MARERI       0.00      0.00      0.00         3
+      MAXVER       0.09      1.00      0.17       555
+      MICSCH       0.00      0.00      0.00        88
+      NICHUL       0.00      0.00      0.00       144
+      NICLAF       0.00      0.00      0.00       102
+      NIKMAZ       0.00      0.00      0.00        46
+      NYCDEV       0.00      0.00      0.00        24
+      OSCPIA       0.00      0.00      0.00        53
+      PIEFIT       0.00      0.00      0.00         9
+      PIEGAS       0.00      0.00      0.00       323
+      ROBKUB       0.00      0.00      0.00        14
+      ROBSHW       0.00      0.00      0.00         3
+      ROMGRO       0.00      0.00      0.00        82
+      SEBVET       0.00      0.00      0.00       239
+      SERPER       0.00      0.00      0.00       277
+      SERSIR       0.00      0.00      0.00         3
+      STOVAN       0.00      0.00      0.00         5
+      VALBOT       0.00      0.00      0.00       250
+      YUKTSU       0.00      0.00      0.00       145
+
+    accuracy                           0.09      5953
+   macro avg       0.00      0.03      0.00      5953
+weighted avg       0.01      0.09      0.02      5953
+
+Dense layer AUC-ROC: 0.5061710190339511
+Using  2 GPUs
+Custom classifier input size: 1024
+############################ bert-large-uncased text results ##################################
+Epoch [1/100] - Training Loss: 69713.34379 - Average Training Loss: 3.65969 - Validation Loss: 17328.45819 - Average Validation Loss: 3.63814
+Updating learning rate to 0.1
+Epoch [2/100] - Training Loss: 69303.47221 - Average Training Loss: 3.63817 - Validation Loss: 17328.45319 - Average Validation Loss: 3.63814
+Updating learning rate to 0.1
+Epoch [3/100] - Training Loss: 69302.58453 - Average Training Loss: 3.63812 - Validation Loss: 17328.46526 - Average Validation Loss: 3.63814
+Updating learning rate to 0.1
+Epoch [4/100] - Training Loss: 69301.72244 - Average Training Loss: 3.63808 - Validation Loss: 17326.91577 - Average Validation Loss: 3.63782
+Updating learning rate to 0.1
+Epoch [5/100] - Training Loss: 69306.62200 - Average Training Loss: 3.63833 - Validation Loss: 17327.57658 - Average Validation Loss: 3.63795
+Updating learning rate to 0.1
+Epoch [6/100] - Training Loss: 69305.61785 - Average Training Loss: 3.63828 - Validation Loss: 17328.46923 - Average Validation Loss: 3.63814
+Updating learning rate to 0.1
+Epoch [7/100] - Training Loss: 69305.57108 - Average Training Loss: 3.63828 - Validation Loss: 17328.46264 - Average Validation Loss: 3.63814
+Updating learning rate to 0.1
+Epoch [8/100] - Training Loss: 69305.20072 - Average Training Loss: 3.63826 - Validation Loss: 17328.46916 - Average Validation Loss: 3.63814
+Updating learning rate to 0.1
+Epoch [9/100] - Training Loss: 69302.64383 - Average Training Loss: 3.63813 - Validation Loss: 17328.47240 - Average Validation Loss: 3.63814
+Updating learning rate to 0.1
+Epoch [10/100] - Training Loss: 69300.70464 - Average Training Loss: 3.63802 - Validation Loss: 17328.45675 - Average Validation Loss: 3.63814
+Updating learning rate to 0.1
+Epoch [11/100] - Training Loss: 69300.67288 - Average Training Loss: 3.63802 - Validation Loss: 17328.46955 - Average Validation Loss: 3.63814
+Updating learning rate to 0.1
+Epoch [12/100] - Training Loss: 69300.66656 - Average Training Loss: 3.63802 - Validation Loss: 17328.46784 - Average Validation Loss: 3.63814
+Updating learning rate to 0.1
+Epoch [13/100] - Training Loss: 69300.68334 - Average Training Loss: 3.63802 - Validation Loss: 17328.46735 - Average Validation Loss: 3.63814
+Updating learning rate to 0.1
+Epoch [14/100] - Training Loss: 69300.67725 - Average Training Loss: 3.63802 - Validation Loss: 17328.46076 - Average Validation Loss: 3.63814
+Updating learning rate to 0.1
+Early stopping - Epoch: 14/100, Best loss: 17326.915765047073
+Total time for fitting: 3880.0645 seconds
+Macro F1 Score dense layer: 0.00452805056078613
+/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+              precision    recall  f1-score   support
+
+      ALEALB       0.00      0.00      0.00       214
+      ANTGIO       0.00      0.00      0.00        48
+      BREHAR       0.00      0.00      0.00        10
+      CARSAI       0.00      0.00      0.00       396
+      CHALEC       0.00      0.00      0.00       352
+      DANKVY       0.00      0.00      0.00        69
+      DANRIC       0.00      0.00      0.00       318
+      ESTOCO       0.00      0.00      0.00       251
+      FERALO       0.04      0.01      0.01       165
+      GEORUS       0.00      0.00      0.00       268
+      GUAZHO       0.00      0.00      0.00        95
+      ISAHAD       0.00      0.00      0.00         2
+      JACAIT       0.00      0.00      0.00         4
+      JACDOO       0.00      0.00      0.00         3
+      KEVMAG       0.00      0.00      0.00       152
+      KIMRAI       0.00      0.00      0.00       117
+      LANNOR       0.00      0.00      0.00       353
+      LANSTR       0.00      0.00      0.00       235
+      LEWHAM       0.00      0.00      0.00       466
+      LIALAW       0.00      0.00      0.00        18
+      LOGSAR       0.00      0.00      0.00        52
+      MARERI       0.00      0.00      0.00         3
+      MAXVER       0.09      1.00      0.17       555
+      MICSCH       0.00      0.00      0.00        88
+      NICHUL       0.00      0.00      0.00       144
+      NICLAF       0.00      0.00      0.00       102
+      NIKMAZ       0.00      0.00      0.00        46
+      NYCDEV       0.00      0.00      0.00        24
+      OSCPIA       0.00      0.00      0.00        53
+      PIEFIT       0.00      0.00      0.00         9
+      PIEGAS       0.00      0.00      0.00       323
+      ROBKUB       0.00      0.00      0.00        14
+      ROBSHW       0.00      0.00      0.00         3
+      ROMGRO       0.00      0.00      0.00        82
+      SEBVET       0.00      0.00      0.00       239
+      SERPER       0.00      0.00      0.00       277
+      SERSIR       0.00      0.00      0.00         3
+      STOVAN       0.00      0.00      0.00         5
+      VALBOT       0.00      0.00      0.00       250
+      YUKTSU       0.00      0.00      0.00       145
+
+    accuracy                           0.09      5953
+   macro avg       0.00      0.03      0.00      5953
+weighted avg       0.01      0.09      0.02      5953
+
+/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Dense layer AUC-ROC: 0.49992604634732773
