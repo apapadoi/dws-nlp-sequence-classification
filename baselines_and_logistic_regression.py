@@ -1,6 +1,8 @@
 import time
+import random
 
 import pandas as pd
+import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
@@ -11,6 +13,8 @@ from sklearn.metrics import classification_report
 from sklearn.metrics import roc_auc_score
 
 RANDOM_STATE = 42
+np.random.seed(RANDOM_STATE)
+random.seed(RANDOM_STATE)
 
 df = pd.read_csv('data_processed.csv')
 dataset_description_list = [
@@ -18,15 +22,19 @@ dataset_description_list = [
     'text_stft',
     'text_stft_spectrogram',
     'text_stft_spectrogram_mfccs',
-    'text_stft_spectrogram_mfccs_pitches',
-    'text_stft_spectrogram_mfccs_pitches_energy'
 ]
-# TODO might need resampling here too
+
 for dataset_description in dataset_description_list:
     columns_to_use = [column for column in df.columns for feature_category in dataset_description.split('_') if feature_category in column]
     current_df = df[columns_to_use]
-    X_train, X_test, y_train, y_test = train_test_split(current_df, df.label, test_size=0.2, random_state=RANDOM_STATE, stratify=df.label)
-    scaler = StandardScaler() # required for fast convergence of saga solver
+
+    X_train, X_test, y_train, y_test = train_test_split(current_df, df.label, test_size=0.2,
+                                                        random_state=RANDOM_STATE, stratify=df.label)
+
+    X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.2, random_state=RANDOM_STATE,
+                                                      stratify=y_train)
+
+    # scaler = StandardScaler() # required for fast convergence of saga solver but TfidfVectorizer has norm='l2' by default so all weights per row are less than one
     tfidf_vectorizer = TfidfVectorizer()
     tfidf_train_features = tfidf_vectorizer.fit_transform(X_train.text)
     tfidf_train_df = pd.DataFrame(tfidf_train_features.toarray(), columns=tfidf_vectorizer.get_feature_names_out())
@@ -45,12 +53,12 @@ for dataset_description in dataset_description_list:
         X_train = tfidf_train_df
         X_test = tfidf_test_df
 
-    x_train_columns = X_train.columns
-    X_train = scaler.fit_transform(X_train)
-    X_train = pd.DataFrame(X_train, columns=x_train_columns)
-
-    X_test = scaler.transform(X_test)
-    X_test = pd.DataFrame(X_test, columns=x_train_columns)
+    # x_train_columns = X_train.columns
+    # X_train = scaler.fit_transform(X_train)
+    # X_train = pd.DataFrame(X_train, columns=x_train_columns)
+    #
+    # X_test = scaler.transform(X_test)
+    # X_test = pd.DataFrame(X_test, columns=x_train_columns)
 
     print(f'############################ {dataset_description} results ##################################')
     # Majority Baseline
@@ -84,7 +92,7 @@ for dataset_description in dataset_description_list:
     print('Random baseline AUC-ROC: ' + str(roc_auc_score(y_test, dummy_random.predict_proba(X_test), multi_class='ovr', average='macro')))
 
     # Logistic regression
-    logistic_regression = LogisticRegression(n_jobs=14, random_state=RANDOM_STATE, max_iter=1000)
+    logistic_regression = LogisticRegression(n_jobs=22, random_state=RANDOM_STATE, max_iter=10000)
     start_time = time.time()
     logistic_regression.fit(X_train, y_train)
     end_time = time.time()

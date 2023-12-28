@@ -123,7 +123,7 @@ for year in range(starting_year, 2024):
                         mfccs = librosa.feature.mfcc(y=y, sr=sampling_rate, n_mfcc=13)
                         average_mfcss = np.array([np.mean(row) for row in mfccs])
 
-                        # TODO might need to average per column - calculate total audio duration of dataset in seconds as well as total size of audio files collected
+                        # TODO need to average per column - calculate total audio duration of dataset in seconds as well as total size of audio files collected
                         pitches, _ = librosa.piptrack(y=y, sr=sampling_rate)
                         average_pitches = np.array([np.mean(row) for row in pitches])
 

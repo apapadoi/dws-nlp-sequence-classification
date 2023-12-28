@@ -1,5 +1,6 @@
 import os
 import time
+import random
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -12,18 +13,27 @@ from sklearn.metrics import f1_score
 from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
-from transformers import BertTokenizer, BertModel
+from transformers import AutoTokenizer, BertForSequenceClassification
 from imblearn.under_sampling import RandomUnderSampler
 from imblearn.over_sampling import RandomOverSampler
+from torch.utils.data import DataLoader, Dataset
 from torch.optim import lr_scheduler
 
 sns.set_theme()
 
 RANDOM_STATE = 42
-NUM_EPOCHS = 100 # TODO state in paper that the max allowed epochs are 100
-BATCH_SIZE = 1024
-EARLY_STOPPING_PATIENCE = 10
-DESIRED_SAMPLES_PER_CLASS = 500
+NUM_EPOCHS = [3, 2] # TODO state in paper for how many epochs we fine tune
+BATCH_SIZES = [
+    32,
+    10
+]
+BATCH_SIZE_MULTIPLIERS = [
+    10,
+    16
+]
+
+EARLY_STOPPING_PATIENCE = 3
+DESIRED_SAMPLES_PER_CLASS = 100
 OUTPUT_FOLDER = './artifacts'
 
 if not os.path.exists(OUTPUT_FOLDER):
@@ -31,6 +41,7 @@ if not os.path.exists(OUTPUT_FOLDER):
 
 torch.manual_seed(RANDOM_STATE)
 np.random.seed(RANDOM_STATE)
+random.seed(RANDOM_STATE)
 
 if torch.cuda.is_available():
     device = torch.device("cuda")
@@ -40,13 +51,10 @@ else:
     print("Using CPU")
 
 df = pd.read_csv('data_processed.csv')
+NUM_LABELS=len(df.label.unique().tolist())
+
 dataset_description_list = [
     'text',
-    # 'text_stft',
-    # 'text_stft_spectrogram',
-    # 'text_stft_spectrogram_mfccs',
-    # 'text_stft_spectrogram_mfccs_pitches',
-    # 'text_stft_spectrogram_mfccs_pitches_energy'
 ]
 
 model_names_list = [
@@ -54,176 +62,153 @@ model_names_list = [
     'bert-large-uncased'
 ]
 
-basic_input_sizes = [
-    768,
-    1024
-]
-
-# TODO try logistic regression after pooling step
-# TODO try BertForSequenceClassification and might reject idea about audio processing features for BERT
-# TODO try sentence BERT
-class CustomClassifier(nn.Module):
-    def __init__(self, basic_input_size, num_audio_processing_features, num_classes):
-        super(CustomClassifier, self).__init__()
-        print(f'Custom classifier input size: {basic_input_size + num_audio_processing_features}')
-        self.fc1 = nn.Linear(basic_input_size + num_audio_processing_features, num_classes)
-        # self.fc2 = nn.Linear(1024, 512)
-        # self.fc3 = nn.Linear(512, 256)
-        # self.fc4 = nn.Linear(256, 128)
-        # self.fc5 = nn.Linear(128, num_classes)
-        self.softmax = nn.Softmax(dim=1)
-        # self.relu = nn.ReLU()
-        # self.fc1 = nn.Linear(basic_input_size + num_audio_processing_features, num_classes)
-
-    def forward(self, x):
-        # x = self.fc1(x)
-        # x = self.relu(x)
-        # x = self.fc2(x)
-        # x = self.relu(x)
-        # x = self.fc3(x)
-        # x = self.relu(x)
-        # x = self.fc4(x)
-        # x = self.relu(x)
-        output = self.fc1(x)
-        output = self.softmax(output)
-        return output
-
-
-for model_name, basic_input_size in zip(model_names_list, basic_input_sizes):
-    tokenizer = BertTokenizer.from_pretrained(model_name)
-    model = BertModel.from_pretrained(model_name)
-    model = model.to(device)
-
-    if torch.cuda.device_count() > 1:
-        print("Using ", torch.cuda.device_count(), "GPUs")
-        model = torch.nn.DataParallel(model)
+# TODO try sentence BERT with logistic regression or linear layer after pooling step in order to use also the other features as in baselines_and_logistic_regression.py \
+#  also see bertforsequenceclassification configuration and mimic this and try the best model of sentence-transformers and a smaller model as well to see if we can achieve \
+#  same performance with less parameters
+for model_name, BATCH_SIZE, BATCH_SIZE_MULTIPLIER, NUM_EPOCHS in zip(model_names_list, BATCH_SIZES, BATCH_SIZE_MULTIPLIERS, NUM_EPOCHS):
     for dataset_description in dataset_description_list:
         columns_to_use = [column for column in df.columns for feature_category in dataset_description.split('_') if feature_category in column]
         current_df = df[columns_to_use]
 
-        # rus = RandomUnderSampler(random_state=RANDOM_STATE, sampling_strategy={key: DESIRED_SAMPLES_PER_CLASS if df.label.value_counts().loc[key] > DESIRED_SAMPLES_PER_CLASS else df.label.value_counts().loc[key] for key in df.label.unique().tolist()})
-        # current_df, y = rus.fit_resample(current_df, df.label)
-        # ros = RandomOverSampler(random_state=RANDOM_STATE, sampling_strategy={key: DESIRED_SAMPLES_PER_CLASS if y.value_counts().loc[key] < DESIRED_SAMPLES_PER_CLASS else y.value_counts().loc[key] for key in y.unique().tolist()})
-        # current_df, y = ros.fit_resample(current_df, y)
-
+        tokenizer = AutoTokenizer.from_pretrained(model_name)
         X_train, X_test, y_train, y_test = train_test_split(current_df, df.label, test_size=0.2,
                                                             random_state=RANDOM_STATE, stratify=df.label)
 
         X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.2, random_state=RANDOM_STATE, stratify=y_train)
 
-        if len(columns_to_use) > 1:
-            X_train_numerical_features = X_train.drop(columns='text')
-            X_val_numerical_features = X_val.drop(columns='text')
-            X_test_numerical_features = X_test.drop(columns='text')
-        else:
-            X_train_numerical_features = pd.DataFrame([])
-            X_val_numerical_features = pd.DataFrame([])
-            X_test_numerical_features = pd.DataFrame([])
+        # rus = RandomUnderSampler(random_state=RANDOM_STATE, sampling_strategy={key: DESIRED_SAMPLES_PER_CLASS if y_train.value_counts().loc[key] > DESIRED_SAMPLES_PER_CLASS else y_train.value_counts().loc[key] for key in y_train.unique().tolist()})
+        # X_train, y_train = rus.fit_resample(X_train, y_train)
+        # ros = RandomOverSampler(random_state=RANDOM_STATE, sampling_strategy={key: DESIRED_SAMPLES_PER_CLASS if y_train.value_counts().loc[key] < DESIRED_SAMPLES_PER_CLASS else y_train.value_counts().loc[key] for key in y_train.unique().tolist()})
+        # X_train, y_train = ros.fit_resample(X_train, y_train)
+
+        X_train = X_train.reset_index(drop=True)
+        X_val = X_val.reset_index(drop=True)
+        X_test = X_test.reset_index(drop=True)
+
+        y_train = y_train.reset_index(drop=True)
+        y_val = y_val.reset_index(drop=True)
+        y_test = y_test.reset_index(drop=True)
 
         label_encoder = LabelEncoder()
         y_train_encoded = pd.Series(label_encoder.fit_transform(y_train), index=y_train.index)
         y_val_encoded = pd.Series(label_encoder.fit_transform(y_val), index=y_val.index)
         y_test_encoded = pd.Series(label_encoder.fit_transform(y_test), index=y_test.index)
 
-        num_classes = len(df.label.unique().tolist())
-        num_audio_processing_features = X_train_numerical_features.shape[1]
+        max_len = 512
 
-        classifier = CustomClassifier(basic_input_size, num_audio_processing_features, num_classes)
-        classifier = classifier.to(device)
+        def tokenize_text(text):
+            return tokenizer.encode_plus(
+                text,
+                add_special_tokens=True,
+                max_length=max_len,
+                padding='max_length',
+                return_attention_mask=True,
+                return_tensors='pt',
+                truncation=True
+            )
 
-        criterion = nn.CrossEntropyLoss()
-        optimizer = torch.optim.Adam(classifier.parameters(), lr=0.1)
-        scheduler = lr_scheduler.StepLR(optimizer, step_size=33)
 
-        print(f'############################ {model_name} {dataset_description} results ##################################')
+        class CustomDataset(Dataset):
+            def __init__(self, texts, labels):
+                self.texts = texts
+                self.labels = labels
+
+            def __len__(self):
+                return len(self.texts)
+
+            def __getitem__(self, idx):
+                text = self.texts[idx]
+                label = self.labels[idx]
+                tokenized_text = tokenize_text(text)
+                return {
+                    'input_ids': tokenized_text['input_ids'].squeeze(0),
+                    'attention_mask': tokenized_text['attention_mask'].squeeze(0),
+                    'labels': torch.tensor(label, dtype=torch.long)
+                }
+
+
+        train_dataset = CustomDataset(X_train.text, y_train_encoded)
+        val_dataset = CustomDataset(X_val.text, y_val_encoded)
+        test_dataset = CustomDataset(X_test.text, y_test_encoded)
+
+        train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True)
+        val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE_MULTIPLIER*BATCH_SIZE, shuffle=False)
+        test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE_MULTIPLIER*BATCH_SIZE, shuffle=False)
+
+        model = BertForSequenceClassification.from_pretrained(model_name, num_labels=NUM_LABELS)
+        model = model.to(device)
+
+        if torch.cuda.device_count() > 1:
+            print("Using ", torch.cuda.device_count(), "GPUs")
+            model = torch.nn.parallel.DataParallel(model)
+
+        optimizer = torch.optim.AdamW(model.parameters(), lr=2e-5)
         early_stopping_counter = 0
         best_loss = float('inf')
         early_stopping_epoch = -1
         train_losses_list = []
         val_losses_list = []
         start_time = time.time()
+
+        print(f'############################ {model_name} {dataset_description} results ##################################')
+
         for epoch in range(NUM_EPOCHS):
-            classifier.train()
-            train_loss = 0.0
-
-            np.random.seed(epoch)
-
-            shuffled_index = np.random.permutation(X_train.index)
-            X_train_shuffled = X_train.reindex(shuffled_index)
-            X_train_numerical_features_shuffled = X_train_numerical_features.reindex(shuffled_index)
-            y_train_shuffled = y_train_encoded.reindex(shuffled_index)
-
-            for start_idx in range(0, len(X_train_shuffled), BATCH_SIZE):
-                end_idx = min(start_idx + BATCH_SIZE, len(X_train_shuffled))
-
-                batch_X_train_text_df = X_train_shuffled.iloc[start_idx:end_idx]
-                batch_y_train = y_train_shuffled.iloc[start_idx:end_idx]
-                batch_X_train_numerical_features_df = X_train_numerical_features_shuffled.iloc[start_idx:end_idx]
+            print(f'Epoch {epoch+1}/{NUM_EPOCHS}')
+            model.train()
+            train_loss = 0
+            for batch_index, batch in enumerate(train_loader):
+                print(f'Train Batch {batch_index+1}/{len(train_loader)}')
+                input_ids = batch['input_ids'].to(device)
+                attention_mask = batch['attention_mask'].to(device)
+                labels = batch['labels'].to(device)
 
                 optimizer.zero_grad()
-
-                texts = batch_X_train_text_df['text'].tolist()
-                tokenized_texts = tokenizer(texts, padding=True, truncation=True, return_tensors='pt')
-                with torch.no_grad():
-                    outputs = model(**tokenized_texts)
-                    cls_embeddings = outputs[1]
-
-                if len(columns_to_use) > 1:
-                    combined_features = torch.cat([cls_embeddings, torch.tensor(batch_X_train_numerical_features_df.values, dtype=torch.float32).to(device)], dim=1)
+                outputs = model(input_ids, attention_mask=attention_mask, labels=labels)
+                loss = outputs.loss
+                if torch.cuda.device_count() > 1:
+                    train_loss += loss.sum()
+                    loss.sum().backward()
                 else:
-                    combined_features = torch.cat([cls_embeddings], dim=1)
+                    train_loss += loss
+                    loss.backward()
 
-
-                own_model_outputs = classifier(combined_features)
-                loss = criterion(own_model_outputs, torch.tensor(batch_y_train.tolist()).to(device))
-
-                loss.backward()
                 optimizer.step()
 
-                train_loss += loss.item() * combined_features.size(0)
+            if device.type == 'cuda':
+                train_losses_list.append(train_loss.cpu().detach().numpy())
+            else:
+                train_losses_list.append(train_loss.detach().numpy())
 
-                del cls_embeddings
-                del combined_features
+            del outputs
+            torch.cuda.empty_cache()
 
-                torch.cuda.empty_cache()
-
-            average_train_loss = train_loss / X_train_shuffled.shape[0]
-            train_losses_list.append(train_loss)
-
-            classifier.eval()
+            # Evaluation
+            model.eval()
             val_loss = 0.0
-            total_samples = 0
             with torch.no_grad():
-                for start_idx in range(0, len(X_val), BATCH_SIZE):
-                    end_idx = min(start_idx + BATCH_SIZE, len(X_val))
+                for batch_index, batch in enumerate(val_loader):
+                    print(f'Validation Batch {batch_index + 1}/{len(val_loader)}')
+                    input_ids = batch['input_ids'].to(device)
+                    attention_mask = batch['attention_mask'].to(device)
+                    labels = batch['labels'].to(device)
 
-                    batch_X_val_df = X_val.iloc[start_idx:end_idx]
-                    batch_y_val = y_val_encoded.iloc[start_idx:end_idx]
-                    batch_X_val_numerical_features_df = X_val_numerical_features.iloc[start_idx:end_idx]
-
-                    texts = batch_X_val_df['text'].tolist()
-                    tokenized_texts = tokenizer(texts, padding=True, truncation=True, return_tensors='pt')
-
-                    outputs = model(**tokenized_texts)
-                    cls_embeddings = outputs[1]
-
-                    if len(columns_to_use) > 1:
-                        combined_features = torch.cat([cls_embeddings, torch.tensor(batch_X_val_numerical_features_df.values, dtype=torch.float32).to(device)], dim=1)
+                    outputs = model(input_ids, attention_mask=attention_mask, labels=labels)
+                    loss = outputs.loss
+                    if torch.cuda.device_count() > 1:
+                        val_loss += loss.sum()
                     else:
-                        combined_features = torch.cat([cls_embeddings], dim=1)
+                        val_loss += loss
 
-                    outputs = classifier(combined_features)
-                    loss = criterion(outputs, torch.tensor(batch_y_val.tolist()).to(device))
+            del outputs
+            torch.cuda.empty_cache()
 
-                    val_loss += loss.item() * combined_features.size(0)
-                    total_samples += combined_features.size(0)
+            if device.type == 'cuda':
+                val_losses_list.append(val_loss.cpu().detach().numpy())
+            else:
+                val_losses_list.append(val_loss.detach().numpy())
 
-            average_val_loss = val_loss / total_samples
-            val_losses_list.append(val_loss)
-            print(f'Epoch [{epoch + 1}/{NUM_EPOCHS}] - Training Loss: {train_loss:.5f} - Average Training Loss: {average_train_loss:.5f} - Validation Loss: {val_loss:.5f} - Average Validation Loss: {average_val_loss:.5f}')
-
-            scheduler.step()
-            print(f'Updating learning rate to {optimizer.param_groups[0]["lr"]}')
+            print(
+                f'Epoch [{epoch + 1}/{NUM_EPOCHS}] - Training Loss: {train_loss:.5f} - Average Training Loss: {train_loss/X_train.shape[0]:.5f} - Validation Loss: {val_loss:.5f} - Average Validation Loss: {val_loss/X_val.shape[0]}')
 
             if val_loss < best_loss:
                 best_loss = val_loss
@@ -236,8 +221,7 @@ for model_name, basic_input_size in zip(model_names_list, basic_input_sizes):
                     break
 
         end_time = time.time()
-        torch.save(classifier.state_dict(), f'{OUTPUT_FOLDER}/{model_name}_{dataset_description}_epoch_{early_stopping_epoch+1 if early_stopping_epoch != -1 else NUM_EPOCHS}_out_of_{NUM_EPOCHS}.pth')
-
+        torch.save(model.state_dict(), f'{OUTPUT_FOLDER}/{model_name}_{dataset_description}_epoch_{early_stopping_epoch+1 if early_stopping_epoch != -1 else NUM_EPOCHS}_out_of_{NUM_EPOCHS}.pth')
         # Save learning curve
         epochs = range(1, len(train_losses_list) + 1)
         plt.figure(figsize=(8, 5))
@@ -253,32 +237,20 @@ for model_name, basic_input_size in zip(model_names_list, basic_input_sizes):
         plt.savefig(f'{OUTPUT_FOLDER}/{model_name}_{dataset_description}_epoch_{early_stopping_epoch+1 if early_stopping_epoch != -1 else NUM_EPOCHS}_out_of_{NUM_EPOCHS}_learning_curve.png')
 
         plt.show()
-
         # Save metrics on test set
-        classifier.eval()
+        model.eval()
         y_pred_all = []
         probabilities_all = []
         with torch.no_grad():
-            for start_idx in range(0, len(X_test), BATCH_SIZE):
-                end_idx = min(start_idx + BATCH_SIZE, len(X_test))
+            for batch_index, batch in enumerate(test_loader):
+                print(f'Test Batch {batch_index + 1}/{len(test_loader)}')
+                input_ids = batch['input_ids'].to(device)
+                attention_mask = batch['attention_mask'].to(device)
+                labels = batch['labels'].to(device)
 
-                batch_X_test_df = X_test.iloc[start_idx:end_idx]
-                batch_X_test_numerical_features_df = X_test_numerical_features.iloc[start_idx:end_idx]
+                outputs = model(input_ids, attention_mask=attention_mask, labels=labels)
 
-                texts = batch_X_test_df['text'].tolist()
-                tokenized_texts = tokenizer(texts, padding=True, truncation=True, return_tensors='pt')
-
-                outputs = model(**tokenized_texts)
-                cls_embeddings = outputs[1]
-
-                if len(columns_to_use) > 1:
-                    combined_features = torch.cat([cls_embeddings, torch.tensor(batch_X_test_numerical_features_df.values, dtype=torch.float32).to(device)], dim=1)
-                else:
-                    combined_features = torch.cat([cls_embeddings], dim=1)
-
-                outputs = classifier(combined_features)
-
-                probabilities = torch.softmax(outputs, dim=1)
+                probabilities = torch.softmax(outputs.logits, dim=1)
 
                 _, y_pred_encoded = torch.max(probabilities, 1)
 
@@ -292,13 +264,13 @@ for model_name, basic_input_size in zip(model_names_list, basic_input_sizes):
                 y_pred = label_encoder.inverse_transform(y_pred_encoded.numpy())
                 y_pred_all.extend(y_pred)
 
-
         f1 = f1_score(y_test, y_pred_all, average='macro')
         print(f"Total time for fitting: {end_time - start_time:.4f} seconds")
         print(f"Macro F1 Score dense layer: {f1}")
         print(classification_report(y_test, y_pred_all))
         print('Dense layer AUC-ROC: ' + str(roc_auc_score(y_test_encoded, probabilities_all, multi_class='ovr', average='macro')))
-        # exit(0)
-    del model
-    del tokenizer
-    torch.cuda.empty_cache()
+
+        del outputs
+        del model
+        del tokenizer
+        torch.cuda.empty_cache()

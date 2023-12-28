@@ -1,6 +1,5 @@
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/bin/python /home/apapadoi/Documents/dws-nlp-sequence-classification/baselines_and_logistic_regression.py
 ############################ text results ##################################
-F1 Score majority baseline: 0.0042639827904118
+Macro F1 Score majority baseline: 0.005949924151867794
 /home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
   _warn_prf(average, modifier, msg_start, len(result))
 /home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
@@ -11,7 +10,6 @@ F1 Score majority baseline: 0.0042639827904118
 
       ALEALB       0.00      0.00      0.00       214
       ANTGIO       0.00      0.00      0.00        48
-      BREHAR       0.00      0.00      0.00        10
       CARSAI       0.00      0.00      0.00       396
       CHALEC       0.00      0.00      0.00       352
       DANKVY       0.00      0.00      0.00        69
@@ -20,17 +18,12 @@ F1 Score majority baseline: 0.0042639827904118
       FERALO       0.00      0.00      0.00       165
       GEORUS       0.00      0.00      0.00       268
       GUAZHO       0.00      0.00      0.00        95
-      ISAHAD       0.00      0.00      0.00         2
-      JACAIT       0.00      0.00      0.00         4
-      JACDOO       0.00      0.00      0.00         3
       KEVMAG       0.00      0.00      0.00       152
       KIMRAI       0.00      0.00      0.00       117
       LANNOR       0.00      0.00      0.00       353
       LANSTR       0.00      0.00      0.00       235
       LEWHAM       0.00      0.00      0.00       466
-      LIALAW       0.00      0.00      0.00        18
       LOGSAR       0.00      0.00      0.00        52
-      MARERI       0.00      0.00      0.00         3
       MAXVER       0.09      1.00      0.17       555
       MICSCH       0.00      0.00      0.00        88
       NICHUL       0.00      0.00      0.00       144
@@ -38,396 +31,141 @@ F1 Score majority baseline: 0.0042639827904118
       NIKMAZ       0.00      0.00      0.00        46
       NYCDEV       0.00      0.00      0.00        24
       OSCPIA       0.00      0.00      0.00        53
-      PIEFIT       0.00      0.00      0.00         9
-      PIEGAS       0.00      0.00      0.00       323
-      ROBKUB       0.00      0.00      0.00        14
-      ROBSHW       0.00      0.00      0.00         3
+      PIEGAS       0.00      0.00      0.00       322
       ROMGRO       0.00      0.00      0.00        82
       SEBVET       0.00      0.00      0.00       239
       SERPER       0.00      0.00      0.00       277
-      SERSIR       0.00      0.00      0.00         3
-      STOVAN       0.00      0.00      0.00         5
       VALBOT       0.00      0.00      0.00       250
       YUKTSU       0.00      0.00      0.00       145
 
-    accuracy                           0.09      5953
-   macro avg       0.00      0.03      0.00      5953
-weighted avg       0.01      0.09      0.02      5953
+    accuracy                           0.09      5878
+   macro avg       0.00      0.03      0.01      5878
+weighted avg       0.01      0.09      0.02      5878
 
-F1 Score stratified baseline: 0.02619613385124412
+Majority baseline AUC-ROC: 0.5
+Macro F1 Score stratified baseline: 0.03226723044637715
               precision    recall  f1-score   support
 
       ALEALB       0.04      0.04      0.04       214
-      ANTGIO       0.02      0.02      0.02        48
-      BREHAR       0.00      0.00      0.00        10
-      CARSAI       0.07      0.07      0.07       396
-      CHALEC       0.07      0.07      0.07       352
-      DANKVY       0.02      0.01      0.01        69
-      DANRIC       0.06      0.05      0.05       318
-      ESTOCO       0.05      0.05      0.05       251
-      FERALO       0.03      0.02      0.02       165
-      GEORUS       0.03      0.03      0.03       268
-      GUAZHO       0.01      0.01      0.01        95
-      ISAHAD       0.00      0.00      0.00         2
-      JACAIT       0.00      0.00      0.00         4
-      JACDOO       0.00      0.00      0.00         3
-      KEVMAG       0.02      0.01      0.01       152
-      KIMRAI       0.05      0.04      0.04       117
-      LANNOR       0.06      0.07      0.06       353
-      LANSTR       0.04      0.04      0.04       235
-      LEWHAM       0.10      0.11      0.10       466
-      LIALAW       0.00      0.00      0.00        18
-      LOGSAR       0.00      0.00      0.00        52
-      MARERI       0.00      0.00      0.00         3
-      MAXVER       0.08      0.08      0.08       555
-      MICSCH       0.01      0.01      0.01        88
-      NICHUL       0.00      0.00      0.00       144
-      NICLAF       0.03      0.03      0.03       102
-      NIKMAZ       0.00      0.00      0.00        46
-      NYCDEV       0.00      0.00      0.00        24
-      OSCPIA       0.00      0.00      0.00        53
-      PIEFIT       0.00      0.00      0.00         9
-      PIEGAS       0.06      0.06      0.06       323
-      ROBKUB       0.00      0.00      0.00        14
-      ROBSHW       0.00      0.00      0.00         3
-      ROMGRO       0.02      0.02      0.02        82
-      SEBVET       0.04      0.05      0.04       239
-      SERPER       0.06      0.06      0.06       277
-      SERSIR       0.00      0.00      0.00         3
-      STOVAN       0.00      0.00      0.00         5
-      VALBOT       0.07      0.07      0.07       250
-      YUKTSU       0.02      0.02      0.02       145
-
-    accuracy                           0.05      5953
-   macro avg       0.03      0.03      0.03      5953
-weighted avg       0.05      0.05      0.05      5953
-
-F1 Score random baseline: 0.02304883819613903
-              precision    recall  f1-score   support
-
-      ALEALB       0.04      0.03      0.03       214
-      ANTGIO       0.01      0.02      0.01        48
-      BREHAR       0.01      0.10      0.01        10
-      CARSAI       0.09      0.03      0.05       396
-      CHALEC       0.06      0.03      0.04       352
-      DANKVY       0.01      0.01      0.01        69
-      DANRIC       0.06      0.03      0.04       318
-      ESTOCO       0.07      0.04      0.05       251
-      FERALO       0.02      0.02      0.02       165
-      GEORUS       0.03      0.02      0.02       268
-      GUAZHO       0.02      0.04      0.03        95
-      ISAHAD       0.00      0.00      0.00         2
-      JACAIT       0.00      0.00      0.00         4
-      JACDOO       0.00      0.00      0.00         3
-      KEVMAG       0.02      0.02      0.02       152
-      KIMRAI       0.02      0.03      0.02       117
-      LANNOR       0.06      0.03      0.04       353
-      LANSTR       0.04      0.03      0.04       235
-      LEWHAM       0.06      0.02      0.03       466
-      LIALAW       0.01      0.06      0.01        18
-      LOGSAR       0.03      0.08      0.04        52
-      MARERI       0.00      0.00      0.00         3
-      MAXVER       0.14      0.04      0.06       555
-      MICSCH       0.01      0.02      0.02        88
-      NICHUL       0.06      0.06      0.06       144
-      NICLAF       0.01      0.02      0.02       102
-      NIKMAZ       0.01      0.02      0.01        46
-      NYCDEV       0.01      0.04      0.01        24
-      OSCPIA       0.01      0.04      0.02        53
-      PIEFIT       0.00      0.00      0.00         9
-      PIEGAS       0.06      0.03      0.04       323
-      ROBKUB       0.01      0.07      0.01        14
-      ROBSHW       0.00      0.00      0.00         3
-      ROMGRO       0.00      0.00      0.00        82
-      SEBVET       0.05      0.03      0.04       239
-      SERPER       0.05      0.03      0.04       277
-      SERSIR       0.00      0.00      0.00         3
-      STOVAN       0.00      0.00      0.00         5
-      VALBOT       0.05      0.03      0.04       250
-      YUKTSU       0.05      0.04      0.04       145
-
-    accuracy                           0/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:460: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-Total time for fitting: 1151.8274 seconds
-F1 Score logistic regression: 0.31763835680768066
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-              precision    recall  f1-score   support
-
-      ALEALB       0.43      0.39      0.41       214
-      ANTGIO       0.11      0.10      0.11        48
-      BREHAR       0.12      0.10      0.11        10
-      CARSAI       0.55      0.59      0.57       396
-      CHALEC       0.60      0.65      0.63       352
-      DANKVY       0.38      0.43      0.41        69
-      DANRIC       0.44      0.42      0.43       318
-      ESTOCO       0.44      0.39      0.41       251
-      FERALO       0.43      0.37      0.40       165
-      GEORUS       0.52      0.45      0.48       268
-      GUAZHO       0.53      0.46      0.49        95
-      ISAHAD       0.00      0.00      0.00         2
-      JACAIT       0.00      0.00      0.00         4
-      JACDOO       0.00      0.00      0.00         3
-      KEVMAG       0.28      0.21      0.24       152
-      KIMRAI       0.46      0.49      0.47       117
-      LANNOR       0.47      0.52      0.49       353
-      LANSTR       0.48      0.43      0.45       235
-      LEWHAM       0.65      0.76      0.70       466
-      LIALAW       0.00      0.00      0.00        18
-      LOGSAR       0.21      0.17      0.19        52
-      MARERI       0.00      0.00      0.00         3
-      MAXVER       0.65      0.72      0.68       555
-      MICSCH       0.29      0.23      0.25        88
-      NICHUL       0.33      0.31      0.32       144
-      NICLAF       0.42      0.41      0.41       102
-      NIKMAZ       0.28      0.24      0.26        46
-      NYCDEV       0.26      0.21      0.23        24
-      OSCPIA       0.50      0.47      0.49        53
-      PIEFIT       0.00      0.00      0.00         9
-      PIEGAS       0.53      0.54      0.54       323
-      ROBKUB       0.00      0.00      0.00        14
-      ROBSHW       0.00      0.00      0.00         3
-      ROMGRO       0.47      0.46      0.47        82
-      SEBVET       0.40      0.41      0.41       239
-      SERPER       0.43      0.42      0.43       277
-      SERSIR       0.00      0.00      0.00         3
-      STOVAN       0.33      0.20      0.25         5
-      VALBOT       0.53      0.55      0.54       250
-      YUKTSU       0.43      0.46      0.45       145
-
-    accuracy                           0.50      5953
-   macro avg       0.32      0.31      0.32      5953
-weighted avg       0.49      0.50      0.49      5953
-
-warn_prf(average, modifier, msg_start, len(result))
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-              precision    recall  f1-score   support
-
-      ALEALB       0.00      0.00      0.00       214
       ANTGIO       0.00      0.00      0.00        48
-      BREHAR       0.00      0.00      0.00        10
-      CARSAI       0.00      0.00      0.00       396
-      CHALEC       0.00      0.00      0.00       352
+      CARSAI       0.08      0.07      0.07       396
+      CHALEC       0.08      0.07      0.07       352
       DANKVY       0.00      0.00      0.00        69
-      DANRIC       0.00      0.00      0.00       318
-      ESTOCO       0.00      0.00      0.00       251
-      FERALO       0.00      0.00      0.00       165
-      GEORUS       0.00      0.00      0.00       268
+      DANRIC       0.04      0.04      0.04       318
+      ESTOCO       0.06      0.07      0.06       251
+      FERALO       0.01      0.01      0.01       165
+      GEORUS       0.05      0.05      0.05       268
       GUAZHO       0.00      0.00      0.00        95
-      ISAHAD       0.00      0.00      0.00         2
-      JACAIT       0.00      0.00      0.00         4
-      JACDOO       0.00      0.00      0.00         3
-      KEVMAG       0.00      0.00      0.00       152
-      KIMRAI       0.00      0.00      0.00       117
-      LANNOR       0.00      0.00      0.00       353
-      LANSTR       0.00      0.00      0.00       235
-      LEWHAM       0.00      0.00      0.00       466
-      LIALAW       0.00      0.00      0.00        18
-      LOGSAR       0.00      0.00      0.00        52
-      MARERI       0.00      0.00      0.00         3
-      MAXVER       0.09      1.00      0.17       555
-      MICSCH       0.00      0.00      0.00        88
-      NICHUL       0.00      0.00      0.00       144
-      NICLAF       0.00      0.00      0.00       102
-      NIKMAZ       0.00      0.00      0.00        46
-      NYCDEV       0.00      0.00      0.00        24
-      OSCPIA       0.00      0.00      0.00        53
-      PIEFIT       0.00      0.00      0.00         9
-      PIEGAS       0.00      0.00      0.00       323
-      ROBKUB       0.00      0.00      0.00        14
-      ROBSHW       0.00      0.00      0.00         3
-      ROMGRO       0.00      0.00      0.00        82
-      SEBVET       0.00      0.00      0.00       239
-      SERPER       0.00      0.00      0.00       277
-      SERSIR       0.00      0.00      0.00         3
-      STOVAN       0.00      0.00      0.00         5
-      VALBOT       0.00      0.00      0.00       250
-      YUKTSU       0.00      0.00      0.00       145
-
-    accuracy                           0.09      5953
-   macro avg       0.00      0.03      0.00      5953
-weighted avg       0.01      0.09      0.02      5953
-
-F1 Score stratified baseline: 0.023027326830094542
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-              precision    recall  f1-score   support
-
-      ALEALB       0.03      0.03      0.03       214
-      ANTGIO       0.02      0.02      0.02        48
-      BREHAR       0.00      0.00      0.00        10
-      CARSAI       0.07      0.07      0.07       396
-      CHALEC       0.05      0.05      0.05       352
-      DANKVY       0.00      0.00      0.00        69
-      DANRIC       0.05      0.05      0.05       318
-      ESTOCO       0.04      0.04      0.04       251
-      FERALO       0.03      0.02      0.03       165
-      GEORUS       0.03      0.03      0.03       268
-      GUAZHO       0.00      0.00      0.00        95
-      ISAHAD       0.00      0.00      0.00         2
-      JACAIT       0.00      0.00      0.00         4
-      JACDOO       0.00      0.00      0.00         3
-      KEVMAG       0.01      0.01      0.01       152
-      KIMRAI       0.04      0.04      0.04       117
-      LANNOR       0.04      0.04      0.04       353
-      LANSTR       0.07      0.06      0.06       235
-      LEWHAM       0.07      0.08      0.07       466
-      LIALAW       0.00      0.00      0.00        18
-      LOGSAR       0.00      0.00      0.00        52
-      MARERI       0.00      0.00      0.00         3
+      KEVMAG       0.03      0.03      0.03       152
+      KIMRAI       0.03      0.03      0.03       117
+      LANNOR       0.06      0.07      0.06       353
+      LANSTR       0.05      0.05      0.05       235
+      LEWHAM       0.06      0.07      0.06       466
+      LOGSAR       0.02      0.02      0.02        52
       MAXVER       0.08      0.08      0.08       555
-      MICSCH       0.02      0.02      0.02        88
+      MICSCH       0.03      0.03      0.03        88
       NICHUL       0.02      0.02      0.02       144
       NICLAF       0.01      0.01      0.01       102
       NIKMAZ       0.00      0.00      0.00        46
       NYCDEV       0.00      0.00      0.00        24
       OSCPIA       0.00      0.00      0.00        53
-      PIEFIT       0.00      0.00      0.00         9
-      PIEGAS       0.05      0.05      0.05       323
-      ROBKUB       0.00      0.00      0.00        14
-      ROBSHW       0.00      0.00      0.00         3
-      ROMGRO       0.01      0.01      0.01        82
-      SEBVET       0.06      0.06      0.06       239
+      PIEGAS       0.04      0.04      0.04       322
+      ROMGRO       0.00      0.00      0.00        82
+      SEBVET       0.03      0.03      0.03       239
       SERPER       0.04      0.04      0.04       277
-      SERSIR       0.00      0.00      0.00         3
-      STOVAN       0.00      0.00      0.00         5
-      VALBOT       0.05      0.05      0.05       250
+      VALBOT       0.06      0.06      0.06       250
       YUKTSU       0.02      0.02      0.02       145
 
-    accuracy                           0.05      5953
-   macro avg       0.02      0.02      0.02      5953
-weighted avg       0.05      0.05      0.05      5953
+    accuracy                           0.05      5878
+   macro avg       0.03      0.03      0.03      5878
+weighted avg       0.05      0.05      0.05      5878
 
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-F1 Score random baseline: 0.018102816378892293
+Stratified baseline AUC-ROC: 0.5012836737536562
+Macro F1 Score random baseline: 0.03272534176168441
               precision    recall  f1-score   support
 
-      ALEALB       0.03      0.03      0.03       214
-      ANTGIO       0.01      0.04      0.02        48
-      BREHAR       0.00      0.00      0.00        10
-      CARSAI       0.08      0.03      0.04       396
-      CHALEC       0.04      0.01      0.02       352
-      DANKVY       0.02      0.04      0.03        69
-      DANRIC       0.05      0.02      0.03       318
-      ESTOCO       0.03      0.02      0.02       251
-      FERALO       0.01      0.01      0.01       165
-      GEORUS       0.05      0.03      0.03       268
-      GUAZHO       0.01      0.01      0.01        95
-      ISAHAD       0.00      0.00      0.00         2
-      JACAIT       0.00      0.00      0.00         4
-      JACDOO       0.00      0.00      0.00         3
-      KEVMAG       0.04      0.04      0.04       152
-      KIMRAI       0.02      0.03      0.02       117
-      LANNOR       0.08      0.03      0.05       353
-      LANSTR       0.03      0.02      0.02       235
-      LEWHAM       0.08      0.03      0.04       466
-      LIALAW       0.00      0.00      0.00        18
+      ALEALB       0.04      0.04      0.04       214
+      ANTGIO       0.00      0.02      0.01        48
+      CARSAI       0.13      0.06      0.08       396
+      CHALEC       0.05      0.03      0.04       352
+      DANKVY       0.01      0.03      0.02        69
+      DANRIC       0.03      0.02      0.03       318
+      ESTOCO       0.02      0.02      0.02       251
+      FERALO       0.03      0.03      0.03       165
+      GEORUS       0.06      0.04      0.05       268
+      GUAZHO       0.01      0.02      0.02        95
+      KEVMAG       0.02      0.03      0.02       152
+      KIMRAI       0.01      0.02      0.01       117
+      LANNOR       0.05      0.03      0.04       353
+      LANSTR       0.06      0.05      0.05       235
+      LEWHAM       0.10      0.05      0.06       466
       LOGSAR       0.01      0.04      0.02        52
-      MARERI       0.00      0.00      0.00         3
-      MAXVER       0.09      0.03      0.04       555
-      MICSCH       0.01      0.02      0.02        88
-      NICHUL       0.03      0.03      0.03       144
-      NICLAF       0.02      0.03      0.02       102
+      MAXVER       0.12      0.05      0.07       555
+      MICSCH       0.01      0.02      0.01        88
+      NICHUL       0.02      0.03      0.03       144
+      NICLAF       0.03      0.06      0.04       102
+      NIKMAZ       0.00      0.02      0.01        46
+      NYCDEV       0.01      0.08      0.02        24
+      OSCPIA       0.01      0.02      0.01        53
+      PIEGAS       0.05      0.03      0.04       322
+      ROMGRO       0.01      0.04      0.02        82
+      SEBVET       0.06      0.05      0.05       239
+      SERPER       0.04      0.03      0.04       277
+      VALBOT       0.06      0.05      0.05       250
+      YUKTSU       0.02      0.03      0.03       145
+
+    accuracy                           0.04      5878
+   macro avg       0.04      0.04      0.03      5878
+weighted avg       0.06      0.04      0.04      5878
+
+Random baseline AUC-ROC: 0.5
+Total time for fitting: 98.8408 seconds
+Macro F1 Score logistic regression: 0.18271986328276615
+/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+              precision    recall  f1-score   support
+
+      ALEALB       0.35      0.14      0.19       214
+      ANTGIO       1.00      0.17      0.29        48
+      CARSAI       0.24      0.35      0.28       396
+      CHALEC       0.30      0.49      0.37       352
+      DANKVY       0.00      0.00      0.00        69
+      DANRIC       0.38      0.36      0.37       318
+      ESTOCO       0.31      0.28      0.30       251
+      FERALO       0.11      0.02      0.03       165
+      GEORUS       0.23      0.14      0.18       268
+      GUAZHO       0.33      0.01      0.02        95
+      KEVMAG       0.51      0.21      0.30       152
+      KIMRAI       0.33      0.20      0.25       117
+      LANNOR       0.30      0.36      0.33       353
+      LANSTR       0.34      0.27      0.30       235
+      LEWHAM       0.25      0.48      0.32       466
+      LOGSAR       0.00      0.00      0.00        52
+      MAXVER       0.24      0.55      0.33       555
+      MICSCH       0.43      0.07      0.12        88
+      NICHUL       0.68      0.13      0.22       144
+      NICLAF       0.50      0.02      0.04       102
       NIKMAZ       0.00      0.00      0.00        46
       NYCDEV       0.00      0.00      0.00        24
-      OSCPIA       0.00      0.00      0.00        53
-      PIEFIT       0.00      0.00      0.00         9
-      PIEGAS       0.04      0.02      0.03       323
-      ROBKUB       0.01      0.07      0.01        14
-      ROBSHW       0.00      0.00      0.00         3
-      ROMGRO       0.02      0.04      0.02        82
-      SEBVET       0.03      0.02      0.02       239
-      SERPER       0.04      0.02      0.02       277
-      SERSIR       0.00      0.00      0.00         3
-      STOVAN       0.01      0.20      0.01         5
-      VALBOT       0.05      0.03      0.04       250
-      YUKTSU       0.03      0.03      0.03       145
+      OSCPIA       0.89      0.15      0.26        53
+      PIEGAS       0.22      0.28      0.25       322
+      ROMGRO       0.00      0.00      0.00        82
+      SEBVET       0.26      0.10      0.14       239
+      SERPER       0.13      0.11      0.12       277
+      VALBOT       0.24      0.14      0.18       250
+      YUKTSU       0.42      0.07      0.12       145
 
-    accuracy                           0.02      5953
-   macro avg       0.02      0.02      0.02      5953
-weighted avg       0.05      0.02      0.03      5953
+    accuracy                           0.27      5878
+   macro avg       0.31      0.18      0.18      5878
+weighted avg       0.29      0.27      0.24      5878
 
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:460: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-Total time for fitting: 1072.3769 seconds
-F1 Score logistic regression: 0.5150277725860543
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-              precision    recall  f1-score   support
-
-      ALEALB       0.64      0.56      0.60       214
-      ANTGIO       0.57      0.48      0.52        48
-      BREHAR       0.33      0.20      0.25        10
-      CARSAI       0.68      0.69      0.69       396
-      CHALEC       0.72      0.81      0.76       352
-      DANKVY       0.61      0.59      0.60        69
-      DANRIC       0.63      0.61      0.62       318
-      ESTOCO       0.62      0.65      0.64       251
-      FERALO       0.56      0.56      0.56       165
-      GEORUS       0.57      0.60      0.58       268
-      GUAZHO       0.71      0.71      0.71        95
-      ISAHAD       1.00      0.50      0.67         2
-      JACAIT       0.00      0.00      0.00         4
-      JACDOO       0.00      0.00      0.00         3
-      KEVMAG       0.56      0.45      0.50       152
-      KIMRAI       0.75      0.62      0.68       117
-      LANNOR       0.66      0.71      0.68       353
-      LANSTR       0.63      0.67      0.65       235
-      LEWHAM       0.71      0.82      0.76       466
-      LIALAW       0.50      0.44      0.47        18
-      LOGSAR       0.62      0.46      0.53        52
-      MARERI       0.00      0.00      0.00         3
-      MAXVER       0.78      0.85      0.81       555
-      MICSCH       0.66      0.50      0.57        88
-      NICHUL       0.53      0.49      0.51       144
-      NICLAF       0.73      0.58      0.64       102
-      NIKMAZ       0.72      0.72      0.72        46
-      NYCDEV       0.67      0.25      0.36        24
-      OSCPIA       0.73      0.68      0.71        53
-      PIEFIT       0.57      0.44      0.50         9
-      PIEGAS       0.69      0.63      0.66       323
-      ROBKUB       0.43      0.21      0.29        14
-      ROBSHW       0.00      0.00      0.00         3
-      ROMGRO       0.76      0.50      0.60        82
-      SEBVET       0.59      0.58      0.58       239
-      SERPER       0.62      0.65      0.64       277
-      SERSIR       0.00      0.00      0.00         3
-      STOVAN       0.33      0.20      0.25         5
-      VALBOT       0.66      0.72      0.68       250
-      YUKTSU       0.62      0.61      0.61       145
-
-    accuracy                           0.66      5953
-   macro avg       0.55      0.49      0.52      5953
-weighted avg       0.66      0.66      0.66      5953
-
-############################ text_stft_spectrogram results ##################################
-F1 Score majority baseline: 0.0042639827904118
+Logistic regression AUC-ROC: 0.7582324243963043
+############################ text_stft results ##################################
+Macro F1 Score majority baseline: 0.005949924151867794
 /home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
   _warn_prf(average, modifier, msg_start, len(result))
 /home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
@@ -438,7 +176,6 @@ F1 Score majority baseline: 0.0042639827904118
 
       ALEALB       0.00      0.00      0.00       214
       ANTGIO       0.00      0.00      0.00        48
-      BREHAR       0.00      0.00      0.00        10
       CARSAI       0.00      0.00      0.00       396
       CHALEC       0.00      0.00      0.00       352
       DANKVY       0.00      0.00      0.00        69
@@ -447,17 +184,12 @@ F1 Score majority baseline: 0.0042639827904118
       FERALO       0.00      0.00      0.00       165
       GEORUS       0.00      0.00      0.00       268
       GUAZHO       0.00      0.00      0.00        95
-      ISAHAD       0.00      0.00      0.00         2
-      JACAIT       0.00      0.00      0.00         4
-      JACDOO       0.00      0.00      0.00         3
       KEVMAG       0.00      0.00      0.00       152
       KIMRAI       0.00      0.00      0.00       117
       LANNOR       0.00      0.00      0.00       353
       LANSTR       0.00      0.00      0.00       235
       LEWHAM       0.00      0.00      0.00       466
-      LIALAW       0.00      0.00      0.00        18
       LOGSAR       0.00      0.00      0.00        52
-      MARERI       0.00      0.00      0.00         3
       MAXVER       0.09      1.00      0.17       555
       MICSCH       0.00      0.00      0.00        88
       NICHUL       0.00      0.00      0.00       144
@@ -465,397 +197,135 @@ F1 Score majority baseline: 0.0042639827904118
       NIKMAZ       0.00      0.00      0.00        46
       NYCDEV       0.00      0.00      0.00        24
       OSCPIA       0.00      0.00      0.00        53
-      PIEFIT       0.00      0.00      0.00         9
-      PIEGAS       0.00      0.00      0.00       323
-      ROBKUB       0.00      0.00      0.00        14
-      ROBSHW       0.00      0.00      0.00         3
+      PIEGAS       0.00      0.00      0.00       322
       ROMGRO       0.00      0.00      0.00        82
       SEBVET       0.00      0.00      0.00       239
       SERPER       0.00      0.00      0.00       277
-      SERSIR       0.00      0.00      0.00         3
-      STOVAN       0.00      0.00      0.00         5
       VALBOT       0.00      0.00      0.00       250
       YUKTSU       0.00      0.00      0.00       145
 
-    accuracy                           0.09      5953
-   macro avg       0.00      0.03      0.00      5953
-weighted avg       0.01      0.09      0.02      5953
+    accuracy                           0.09      5878
+   macro avg       0.00      0.03      0.01      5878
+weighted avg       0.01      0.09      0.02      5878
 
-F1 Score stratified baseline: 0.023437889191940935
-              precision    recall  f1-score   support
-
-      ALEALB       0.03      0.03      0.03       214
-      ANTGIO       0.00      0.00      0.00        48
-      BREHAR       0.00      0.00      0.00        10
-      CARSAI       0.07      0.07      0.07       396
-      CHALEC       0.05      0.05      0.05       352
-      DANKVY       0.02      0.01      0.02        69
-      DANRIC       0.05      0.05      0.05       318
-      ESTOCO       0.07      0.07      0.07       251
-      FERALO       0.03      0.03      0.03       165
-      GEORUS       0.04      0.04      0.04       268
-      GUAZHO       0.02      0.02      0.02        95
-      ISAHAD       0.00      0.00      0.00         2
-      JACAIT       0.00      0.00      0.00         4
-      JACDOO       0.00      0.00      0.00         3
-      KEVMAG       0.04      0.04      0.04       152
-      KIMRAI       0.00      0.00      0.00       117
-      LANNOR       0.06      0.06      0.06       353
-      LANSTR       0.06      0.07      0.07       235
-      LEWHAM       0.07      0.07      0.07       466
-      LIALAW       0.00      0.00      0.00        18
-      LOGSAR       0.00      0.00      0.00        52
-      MARERI       0.00      0.00      0.00         3
-      MAXVER       0.08      0.07      0.07       555
-      MICSCH       0.00      0.00      0.00        88
-      NICHUL       0.01      0.01      0.01       144
-      NICLAF       0.02      0.02      0.02       102
-      NIKMAZ       0.00      0.00      0.00        46
-      NYCDEV       0.00      0.00      0.00        24
-      OSCPIA       0.00      0.00      0.00        53
-      PIEFIT       0.00      0.00      0.00         9
-      PIEGAS       0.05      0.05      0.05       323
-      ROBKUB       0.00      0.00      0.00        14
-      ROBSHW       0.00      0.00      0.00         3
-      ROMGRO       0.01      0.01      0.01        82
-      SEBVET       0.03      0.03      0.03       239
-      SERPER       0.03      0.03      0.03       277
-      SERSIR       0.00      0.00      0.00         3
-      STOVAN       0.00      0.00      0.00         5
-      VALBOT       0.05      0.06      0.05       250
-      YUKTSU       0.05      0.06      0.05       145
-
-    accuracy                           0.05      5953
-   macro avg       0.02      0.02      0.02      5953
-weighted avg       0.05      0.05      0.05      5953
-
-F1 Score random baseline: 0.01824759976035779
+Majority baseline AUC-ROC: 0.5
+Macro F1 Score stratified baseline: 0.02936440033708899
               precision    recall  f1-score   support
 
       ALEALB       0.01      0.01      0.01       214
       ANTGIO       0.00      0.00      0.00        48
-      BREHAR       0.00      0.00      0.00        10
-      CARSAI       0.08      0.03      0.04       396
-      CHALEC       0.09      0.04      0.05       352
+      CARSAI       0.06      0.06      0.06       396
+      CHALEC       0.05      0.05      0.05       352
       DANKVY       0.01      0.01      0.01        69
-      DANRIC       0.08      0.04      0.05       318
-      ESTOCO       0.05      0.03      0.04       251
+      DANRIC       0.03      0.03      0.03       318
+      ESTOCO       0.03      0.04      0.03       251
       FERALO       0.02      0.02      0.02       165
-      GEORUS       0.04      0.02      0.03       268
-      GUAZHO       0.01      0.01      0.01        95
-      ISAHAD       0.00      0.00      0.00         2
-      JACAIT       0.00      0.00      0.00         4
-      JACDOO       0.00      0.00      0.00         3
-      KEVMAG       0.01      0.01      0.01       152
-      KIMRAI       0.00      0.00      0.00       117
-      LANNOR       0.07      0.03      0.04       353
-      LANSTR       0.03      0.02      0.03       235
-      LEWHAM       0.07      0.02      0.04       466
-      LIALAW       0.01      0.11      0.02        18
-      LOGSAR       0.00      0.00      0.00        52
-      MARERI       0.00      0.00      0.00         3
-      MAXVER       0.09      0.03      0.04       555
-      MICSCH       0.01      0.02      0.02        88
-      NICHUL       0.01      0.01      0.01       144
-      NICLAF       0.03      0.05      0.04       102
-      NIKMAZ       0.00      0.00      0.00        46
-      NYCDEV       0.01      0.04      0.01        24
-      OSCPIA       0.00      0.00      0.00        53
-      PIEFIT       0.00      0.00      0.00         9
-      PIEGAS       0.07      0.03      0.05       323
-      ROBKUB       0.01      0.07      0.01        14
-      ROBSHW       0.00      0.00      0.00         3
-      ROMGRO       0.03      0.05      0.04        82
-      SEBVET       0.04      0.03      0.03       239
-      SERPER       0.03      0.02      0.02       277
-      SERSIR       0.00      0.00      0.00         3
-      STOVAN       0.00      0.00      0.00         5
-      VALBOT       0.08      0.05      0.06       250
-      YUKTSU       0.01      0.01      0.01       145
-
-    accuracy                           0.03      5953
-   macro avg       0.03      0.02      0.02      5953
-weighted avg       0.05      0.03      0.03      5953
-
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:460: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-Total time for fitting: 1096.4872 seconds
-F1 Score logistic regression: 0.4649051728491006
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-              precision    recall  f1-score   support
-
-      ALEALB       0.66      0.56      0.60       214
-      ANTGIO       0.61      0.52      0.56        48
-      BREHAR       0.25      0.10      0.14        10
-      CARSAI       0.68      0.69      0.68       396
-      CHALEC       0.72      0.81      0.76       352
-      DANKVY       0.64      0.64      0.64        69
-      DANRIC       0.63      0.59      0.61       318
-      ESTOCO       0.63      0.61      0.62       251
-      FERALO       0.58      0.44      0.50       165
-      GEORUS       0.68      0.59      0.63       268
-      GUAZHO       0.69      0.64      0.67        95
-      ISAHAD       0.00      0.00      0.00         2
-      JACAIT       0.00      0.00      0.00         4
-      JACDOO       0.00      0.00      0.00         3
-      KEVMAG       0.51      0.41      0.46       152
-      KIMRAI       0.74      0.71      0.72       117
-      LANNOR       0.65      0.76      0.70       353
-      LANSTR       0.67      0.63      0.65       235
-      LEWHAM       0.73      0.87      0.79       466
-      LIALAW       0.45      0.50      0.47        18
-      LOGSAR       0.61      0.52      0.56        52
-      MARERI       0.00      0.00      0.00         3
-      MAXVER       0.73      0.88      0.80       555
-      MICSCH       0.62      0.39      0.48        88
-      NICHUL       0.56      0.48      0.51       144
-      NICLAF       0.64      0.63      0.63       102
-      NIKMAZ       0.70      0.57      0.63        46
-      NYCDEV       0.57      0.33      0.42        24
-      OSCPIA       0.63      0.60      0.62        53
-      PIEFIT       0.00      0.00      0.00         9
-      PIEGAS       0.74      0.67      0.70       323
-      ROBKUB       0.00      0.00      0.00        14
-      ROBSHW       0.00      0.00      0.00         3
-      ROMGRO       0.66      0.54      0.59        82
-      SEBVET       0.51      0.54      0.52       239
-      SERPER       0.60      0.61      0.60       277
-      SERSIR       0.00      0.00      0.00         3
-      STOVAN       0.00      0.00      0.00         5
-      VALBOT       0.67      0.80      0.73       250
-      YUKTSU       0.59      0.59      0.59       145
-
-    accuracy                           0.66      5953
-   macro avg       0.48      0.45      0.46      5953
-weighted avg       0.65      0.66      0.65      5953
-
-############################ text_stft_spectrogram_mfccs results ##################################
-F1 Score majority baseline: 0.0042639827904118
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-              precision    recall  f1-score   support
-
-      ALEALB       0.00      0.00      0.00       214
-      ANTGIO       0.00      0.00      0.00        48
-      BREHAR       0.00      0.00      0.00        10
-      CARSAI       0.00      0.00      0.00       396
-      CHALEC       0.00      0.00      0.00       352
-      DANKVY       0.00      0.00      0.00        69
-      DANRIC       0.00      0.00      0.00       318
-      ESTOCO       0.00      0.00      0.00       251
-      FERALO       0.00      0.00      0.00       165
-      GEORUS       0.00      0.00      0.00       268
-      GUAZHO       0.00      0.00      0.00        95
-      ISAHAD       0.00      0.00      0.00         2
-      JACAIT       0.00      0.00      0.00         4
-      JACDOO       0.00      0.00      0.00         3
-      KEVMAG       0.00      0.00      0.00       152
-      KIMRAI       0.00      0.00      0.00       117
-      LANNOR       0.00      0.00      0.00       353
-      LANSTR       0.00      0.00      0.00       235
-      LEWHAM       0.00      0.00      0.00       466
-      LIALAW       0.00      0.00      0.00        18
-      LOGSAR       0.00      0.00      0.00        52
-      MARERI       0.00      0.00      0.00         3
-      MAXVER       0.09      1.00      0.17       555
-      MICSCH       0.00      0.00      0.00        88
-      NICHUL       0.00      0.00      0.00       144
-      NICLAF       0.00      0.00      0.00       102
-      NIKMAZ       0.00      0.00      0.00        46
-      NYCDEV       0.00      0.00      0.00        24
-      OSCPIA       0.00      0.00      0.00        53
-      PIEFIT       0.00      0.00      0.00         9
-      PIEGAS       0.00      0.00      0.00       323
-      ROBKUB       0.00      0.00      0.00        14
-      ROBSHW       0.00      0.00      0.00         3
-      ROMGRO       0.00      0.00      0.00        82
-      SEBVET       0.00      0.00      0.00       239
-      SERPER       0.00      0.00      0.00       277
-      SERSIR       0.00      0.00      0.00         3
-      STOVAN       0.00      0.00      0.00         5
-      VALBOT       0.00      0.00      0.00       250
-      YUKTSU       0.00      0.00      0.00       145
-
-    accuracy                           0.09      5953
-   macro avg       0.00      0.03      0.00      5953
-weighted avg       0.01      0.09      0.02      5953
-
-F1 Score stratified baseline: 0.024886078901747388
-              precision    recall  f1-score   support
-
-      ALEALB       0.03      0.03      0.03       214
-      ANTGIO       0.02      0.02      0.02        48
-      BREHAR       0.00      0.00      0.00        10
-      CARSAI       0.05      0.05      0.05       396
-      CHALEC       0.08      0.08      0.08       352
-      DANKVY       0.01      0.01      0.01        69
-      DANRIC       0.05      0.05      0.05       318
-      ESTOCO       0.03      0.04      0.04       251
-      FERALO       0.03      0.03      0.03       165
       GEORUS       0.04      0.04      0.04       268
-      GUAZHO       0.03      0.03      0.03        95
-      ISAHAD       0.00      0.00      0.00         2
-      JACAIT       0.00      0.00      0.00         4
-      JACDOO       0.00      0.00      0.00         3
+      GUAZHO       0.01      0.01      0.01        95
       KEVMAG       0.03      0.03      0.03       152
       KIMRAI       0.02      0.02      0.02       117
       LANNOR       0.07      0.07      0.07       353
       LANSTR       0.05      0.05      0.05       235
-      LEWHAM       0.05      0.05      0.05       466
-      LIALAW       0.00      0.00      0.00        18
+      LEWHAM       0.07      0.07      0.07       466
       LOGSAR       0.00      0.00      0.00        52
-      MARERI       0.00      0.00      0.00         3
-      MAXVER       0.11      0.10      0.11       555
-      MICSCH       0.03      0.03      0.03        88
-      NICHUL       0.03      0.03      0.03       144
-      NICLAF       0.01      0.01      0.01       102
+      MAXVER       0.09      0.08      0.08       555
+      MICSCH       0.00      0.00      0.00        88
+      NICHUL       0.02      0.02      0.02       144
+      NICLAF       0.06      0.06      0.06       102
       NIKMAZ       0.00      0.00      0.00        46
       NYCDEV       0.00      0.00      0.00        24
-      OSCPIA       0.04      0.04      0.04        53
-      PIEFIT       0.00      0.00      0.00         9
-      PIEGAS       0.05      0.05      0.05       323
-      ROBKUB       0.00      0.00      0.00        14
-      ROBSHW       0.00      0.00      0.00         3
-      ROMGRO       0.00      0.00      0.00        82
-      SEBVET       0.05      0.04      0.04       239
-      SERPER       0.03      0.04      0.04       277
-      SERSIR       0.00      0.00      0.00         3
-      STOVAN       0.00      0.00      0.00         5
-      VALBOT       0.04      0.04      0.04       250
-      YUKTSU       0.01      0.01      0.01       145
-
-    accuracy                           0.05      5953
-   macro avg       0.02      0.02      0.02      5953
-weighted avg       0.05      0.05      0.05      5953
-
-F1 Score random baseline: 0.018130072367259515
-              precision    recall  f1-score   support
-
-      ALEALB       0.04      0.03      0.04       214
-      ANTGIO       0.01      0.02      0.01        48
-      BREHAR       0.00      0.00      0.00        10
-      CARSAI       0.07      0.02      0.03       396
-      CHALEC       0.06      0.03      0.04       352
-      DANKVY       0.01      0.01      0.01        69
-      DANRIC       0.06      0.03      0.04       318
-      ESTOCO       0.05      0.03      0.04       251
-      FERALO       0.04      0.04      0.04       165
-      GEORUS       0.04      0.03      0.03       268
-      GUAZHO       0.01      0.02      0.02        95
-      ISAHAD       0.00      0.00      0.00         2
-      JACAIT       0.00      0.00      0.00         4
-      JACDOO       0.00      0.00      0.00         3
-      KEVMAG       0.01      0.01      0.01       152
-      KIMRAI       0.02      0.03      0.02       117
-      LANNOR       0.06      0.03      0.04       353
-      LANSTR       0.05      0.03      0.04       235
-      LEWHAM       0.08      0.03      0.04       466
-      LIALAW       0.00      0.00      0.00        18
-      LOGSAR       0.01      0.02      0.01        52
-      MARERI       0.00      0.00      0.00         3
-      MAXVER       0.12      0.03      0.05       555
-      MICSCH       0.01      0.01      0.01        88
-      NICHUL       0.00      0.00      0.00       144
-      NICLAF       0.01      0.01      0.01       102
-      NIKMAZ       0.01      0.04      0.02        46
-      NYCDEV       0.01      0.08      0.02        24
       OSCPIA       0.00      0.00      0.00        53
-      PIEFIT       0.00      0.00      0.00         9
-      PIEGAS       0.09      0.04      0.05       323
-      ROBKUB       0.00      0.00      0.00        14
-      ROBSHW       0.00      0.00      0.00         3
-      ROMGRO       0.01      0.01      0.01        82
-      SEBVET       0.05      0.03      0.03       239
-      SERPER       0.04      0.02      0.02       277
-      SERSIR       0.00      0.00      0.00         3
-      STOVAN       0.00      0.00      0.00         5
-      VALBOT       0.05      0.02      0.03       250
-      YUKTSU       0.02      0.02      0.02       145
+      PIEGAS       0.04      0.04      0.04       322
+      ROMGRO       0.02      0.02      0.02        82
+      SEBVET       0.02      0.02      0.02       239
+      SERPER       0.04      0.04      0.04       277
+      VALBOT       0.03      0.03      0.03       250
+      YUKTSU       0.03      0.03      0.03       145
 
-    accuracy                           0.03      5953
-   macro avg       0.03      0.02      0.02      5953
-weighted avg       0.05      0.03      0.03      5953
+    accuracy                           0.04      5878
+   macro avg       0.03      0.03      0.03      5878
+weighted avg       0.04      0.04      0.04      5878
 
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:460: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-Total time for fitting: 1077.6189 seconds
-F1 Score logistic regression: 0.45995402668742924
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
+Stratified baseline AUC-ROC: 0.5012789843287642
+Macro F1 Score random baseline: 0.029248243425916417
               precision    recall  f1-score   support
 
-      ALEALB       0.62      0.53      0.57       214
-      ANTGIO       0.66      0.56      0.61        48
-      BREHAR       0.20      0.10      0.13        10
-      CARSAI       0.67      0.69      0.68       396
-      CHALEC       0.72      0.79      0.75       352
-      DANKVY       0.61      0.62      0.62        69
-      DANRIC       0.59      0.58      0.59       318
-      ESTOCO       0.62      0.58      0.60       251
-      FERALO       0.60      0.46      0.52       165
-      GEORUS       0.67      0.60      0.63       268
-      GUAZHO       0.71      0.60      0.65        95
-      ISAHAD       0.00      0.00      0.00         2
-      JACAIT       0.00      0.00      0.00         4
-      JACDOO       0.00      0.00      0.00         3
-      KEVMAG       0.54      0.41      0.47       152
-      KIMRAI       0.72      0.70      0.71       117
-      LANNOR       0.66      0.75      0.70       353
-      LANSTR       0.66      0.64      0.65       235
-      LEWHAM       0.71      0.86      0.78       466
-      LIALAW       0.39      0.39      0.39        18
-      LOGSAR       0.62      0.44      0.52        52
-      MARERI       0.00      0.00      0.00         3
-      MAXVER       0.75      0.86      0.80       555
-      MICSCH       0.53      0.36      0.43        88
-      NICHUL       0.58      0.49      0.53       144
-      NICLAF       0.58      0.62      0.60       102
-      NIKMAZ       0.71      0.54      0.62        46
-      NYCDEV       0.60      0.38      0.46        24
-      OSCPIA       0.69      0.68      0.69        53
-      PIEFIT       0.00      0.00      0.00         9
-      PIEGAS       0.72      0.67      0.70       323
-      ROBKUB       0.00      0.00      0.00        14
-      ROBSHW       0.00      0.00      0.00         3
-      ROMGRO       0.65      0.50      0.57        82
-      SEBVET       0.51      0.54      0.52       239
-      SERPER       0.57      0.62      0.60       277
-      SERSIR       0.00      0.00      0.00         3
-      STOVAN       0.00      0.00      0.00         5
-      VALBOT       0.67      0.78      0.72       250
-      YUKTSU       0.61      0.62      0.62       145
+      ALEALB       0.05      0.05      0.05       214
+      ANTGIO       0.01      0.02      0.01        48
+      CARSAI       0.08      0.05      0.06       396
+      CHALEC       0.08      0.05      0.06       352
+      DANKVY       0.02      0.04      0.02        69
+      DANRIC       0.06      0.04      0.05       318
+      ESTOCO       0.04      0.03      0.03       251
+      FERALO       0.03      0.04      0.03       165
+      GEORUS       0.03      0.02      0.02       268
+      GUAZHO       0.00      0.01      0.01        95
+      KEVMAG       0.01      0.02      0.02       152
+      KIMRAI       0.02      0.04      0.03       117
+      LANNOR       0.06      0.03      0.04       353
+      LANSTR       0.03      0.03      0.03       235
+      LEWHAM       0.07      0.03      0.04       466
+      LOGSAR       0.01      0.06      0.02        52
+      MAXVER       0.05      0.02      0.02       555
+      MICSCH       0.02      0.05      0.03        88
+      NICHUL       0.02      0.03      0.02       144
+      NICLAF       0.02      0.04      0.03       102
+      NIKMAZ       0.01      0.04      0.02        46
+      NYCDEV       0.00      0.00      0.00        24
+      OSCPIA       0.00      0.00      0.00        53
+      PIEGAS       0.06      0.04      0.05       322
+      ROMGRO       0.02      0.05      0.03        82
+      SEBVET       0.02      0.02      0.02       239
+      SERPER       0.05      0.04      0.05       277
+      VALBOT       0.05      0.04      0.05       250
+      YUKTSU       0.02      0.03      0.02       145
 
-    accuracy                           0.66      5953
-   macro avg       0.48      0.45      0.46      5953
-weighted avg       0.65      0.66      0.65      5953
+    accuracy                           0.03      5878
+   macro avg       0.03      0.03      0.03      5878
+weighted avg       0.05      0.03      0.04      5878
 
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-############################ text_stft_spectrogram_mfccs_pitches results ##################################
-F1 Score majority baseline: 0.0042639827904118
+Random baseline AUC-ROC: 0.5
+Total time for fitting: 1251.7354 seconds
+Macro F1 Score logistic regression: 0.6020491948493893
+              precision    recall  f1-score   support
+
+      ALEALB       0.64      0.57      0.60       214
+      ANTGIO       0.68      0.35      0.47        48
+      CARSAI       0.71      0.71      0.71       396
+      CHALEC       0.71      0.82      0.76       352
+      DANKVY       0.62      0.65      0.63        69
+      DANRIC       0.65      0.64      0.64       318
+      ESTOCO       0.57      0.62      0.59       251
+      FERALO       0.56      0.58      0.57       165
+      GEORUS       0.53      0.59      0.56       268
+      GUAZHO       0.66      0.62      0.64        95
+      KEVMAG       0.49      0.39      0.44       152
+      KIMRAI       0.77      0.64      0.70       117
+      LANNOR       0.65      0.68      0.67       353
+      LANSTR       0.63      0.65      0.64       235
+      LEWHAM       0.74      0.85      0.79       466
+      LOGSAR       0.49      0.38      0.43        52
+      MAXVER       0.75      0.84      0.79       555
+      MICSCH       0.63      0.41      0.50        88
+      NICHUL       0.51      0.49      0.50       144
+      NICLAF       0.68      0.48      0.56       102
+      NIKMAZ       0.69      0.54      0.61        46
+      NYCDEV       0.45      0.21      0.29        24
+      OSCPIA       0.74      0.47      0.57        53
+      PIEGAS       0.72      0.65      0.68       322
+      ROMGRO       0.75      0.56      0.64        82
+      SEBVET       0.58      0.57      0.58       239
+      SERPER       0.63      0.68      0.65       277
+      VALBOT       0.63      0.62      0.63       250
+      YUKTSU       0.64      0.60      0.62       145
+
+    accuracy                           0.66      5878
+   macro avg       0.64      0.58      0.60      5878
+weighted avg       0.66      0.66      0.65      5878
+
+Logistic regression AUC-ROC: 0.9517943021343409
+############################ text_stft_spectrogram results ##################################
+Macro F1 Score majority baseline: 0.005949924151867794
 /home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
   _warn_prf(average, modifier, msg_start, len(result))
 /home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
@@ -866,7 +336,6 @@ F1 Score majority baseline: 0.0042639827904118
 
       ALEALB       0.00      0.00      0.00       214
       ANTGIO       0.00      0.00      0.00        48
-      BREHAR       0.00      0.00      0.00        10
       CARSAI       0.00      0.00      0.00       396
       CHALEC       0.00      0.00      0.00       352
       DANKVY       0.00      0.00      0.00        69
@@ -875,17 +344,12 @@ F1 Score majority baseline: 0.0042639827904118
       FERALO       0.00      0.00      0.00       165
       GEORUS       0.00      0.00      0.00       268
       GUAZHO       0.00      0.00      0.00        95
-      ISAHAD       0.00      0.00      0.00         2
-      JACAIT       0.00      0.00      0.00         4
-      JACDOO       0.00      0.00      0.00         3
       KEVMAG       0.00      0.00      0.00       152
       KIMRAI       0.00      0.00      0.00       117
       LANNOR       0.00      0.00      0.00       353
       LANSTR       0.00      0.00      0.00       235
       LEWHAM       0.00      0.00      0.00       466
-      LIALAW       0.00      0.00      0.00        18
       LOGSAR       0.00      0.00      0.00        52
-      MARERI       0.00      0.00      0.00         3
       MAXVER       0.09      1.00      0.17       555
       MICSCH       0.00      0.00      0.00        88
       NICHUL       0.00      0.00      0.00       144
@@ -893,124 +357,262 @@ F1 Score majority baseline: 0.0042639827904118
       NIKMAZ       0.00      0.00      0.00        46
       NYCDEV       0.00      0.00      0.00        24
       OSCPIA       0.00      0.00      0.00        53
-      PIEFIT       0.00      0.00      0.00         9
-      PIEGAS       0.00      0.00      0.00       323
-      ROBKUB       0.00      0.00      0.00        14
-      ROBSHW       0.00      0.00      0.00         3
+      PIEGAS       0.00      0.00      0.00       322
       ROMGRO       0.00      0.00      0.00        82
       SEBVET       0.00      0.00      0.00       239
       SERPER       0.00      0.00      0.00       277
-      SERSIR       0.00      0.00      0.00         3
-      STOVAN       0.00      0.00      0.00         5
       VALBOT       0.00      0.00      0.00       250
       YUKTSU       0.00      0.00      0.00       145
 
-    accuracy                           0.09      5953
-   macro avg       0.00      0.03      0.00      5953
-weighted avg       0.01      0.09      0.02      5953
+    accuracy                           0.09      5878
+   macro avg       0.00      0.03      0.01      5878
+weighted avg       0.01      0.09      0.02      5878
 
-F1 Score stratified baseline: 0.025631557042512
+Majority baseline AUC-ROC: 0.5
+Macro F1 Score stratified baseline: 0.04032910764852056
+              precision    recall  f1-score   support
+
+      ALEALB       0.05      0.05      0.05       214
+      ANTGIO       0.00      0.00      0.00        48
+      CARSAI       0.09      0.09      0.09       396
+      CHALEC       0.08      0.08      0.08       352
+      DANKVY       0.03      0.03      0.03        69
+      DANRIC       0.06      0.06      0.06       318
+      ESTOCO       0.05      0.05      0.05       251
+      FERALO       0.03      0.03      0.03       165
+      GEORUS       0.08      0.07      0.08       268
+      GUAZHO       0.01      0.01      0.01        95
+      KEVMAG       0.02      0.03      0.02       152
+      KIMRAI       0.02      0.02      0.02       117
+      LANNOR       0.06      0.05      0.06       353
+      LANSTR       0.03      0.03      0.03       235
+      LEWHAM       0.07      0.06      0.06       466
+      LOGSAR       0.04      0.04      0.04        52
+      MAXVER       0.11      0.12      0.12       555
+      MICSCH       0.02      0.02      0.02        88
+      NICHUL       0.04      0.04      0.04       144
+      NICLAF       0.02      0.02      0.02       102
+      NIKMAZ       0.02      0.02      0.02        46
+      NYCDEV       0.00      0.00      0.00        24
+      OSCPIA       0.00      0.00      0.00        53
+      PIEGAS       0.06      0.06      0.06       322
+      ROMGRO       0.04      0.04      0.04        82
+      SEBVET       0.04      0.05      0.04       239
+      SERPER       0.04      0.04      0.04       277
+      VALBOT       0.05      0.05      0.05       250
+      YUKTSU       0.01      0.01      0.01       145
+
+    accuracy                           0.06      5878
+   macro avg       0.04      0.04      0.04      5878
+weighted avg       0.06      0.06      0.06      5878
+
+Stratified baseline AUC-ROC: 0.5006660966177019
+Macro F1 Score random baseline: 0.028839682982707237
+              precision    recall  f1-score   support
+
+      ALEALB       0.05      0.04      0.04       214
+      ANTGIO       0.00      0.02      0.01        48
+      CARSAI       0.07      0.03      0.04       396
+      CHALEC       0.05      0.03      0.04       352
+      DANKVY       0.00      0.01      0.01        69
+      DANRIC       0.06      0.03      0.04       318
+      ESTOCO       0.01      0.01      0.01       251
+      FERALO       0.02      0.02      0.02       165
+      GEORUS       0.02      0.01      0.01       268
+      GUAZHO       0.02      0.04      0.03        95
+      KEVMAG       0.05      0.06      0.05       152
+      KIMRAI       0.02      0.03      0.02       117
+      LANNOR       0.05      0.03      0.04       353
+      LANSTR       0.03      0.03      0.03       235
+      LEWHAM       0.08      0.04      0.05       466
+      LOGSAR       0.00      0.02      0.01        52
+      MAXVER       0.09      0.03      0.05       555
+      MICSCH       0.03      0.08      0.05        88
+      NICHUL       0.03      0.04      0.04       144
+      NICLAF       0.01      0.02      0.01       102
+      NIKMAZ       0.01      0.02      0.01        46
+      NYCDEV       0.00      0.04      0.01        24
+      OSCPIA       0.01      0.02      0.01        53
+      PIEGAS       0.04      0.02      0.03       322
+      ROMGRO       0.01      0.04      0.02        82
+      SEBVET       0.05      0.04      0.05       239
+      SERPER       0.06      0.04      0.05       277
+      VALBOT       0.03      0.02      0.03       250
+      YUKTSU       0.03      0.05      0.04       145
+
+    accuracy                           0.03      5878
+   macro avg       0.03      0.03      0.03      5878
+weighted avg       0.05      0.03      0.04      5878
+
+Random baseline AUC-ROC: 0.5
+/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:460: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+Total time for fitting: 6467.2197 seconds
+Macro F1 Score logistic regression: 0.7139831722633335
+              precision    recall  f1-score   support
+
+      ALEALB       0.71      0.70      0.71       214
+      ANTGIO       0.64      0.58      0.61        48
+      CARSAI       0.79      0.76      0.77       396
+      CHALEC       0.80      0.83      0.82       352
+      DANKVY       0.68      0.83      0.75        69
+      DANRIC       0.69      0.69      0.69       318
+      ESTOCO       0.72      0.68      0.70       251
+      FERALO       0.68      0.67      0.67       165
+      GEORUS       0.74      0.68      0.71       268
+      GUAZHO       0.75      0.74      0.74        95
+      KEVMAG       0.60      0.57      0.58       152
+      KIMRAI       0.78      0.85      0.81       117
+      LANNOR       0.80      0.81      0.80       353
+      LANSTR       0.75      0.74      0.74       235
+      LEWHAM       0.83      0.92      0.88       466
+      LOGSAR       0.70      0.90      0.79        52
+      MAXVER       0.84      0.89      0.86       555
+      MICSCH       0.65      0.62      0.64        88
+      NICHUL       0.66      0.67      0.66       144
+      NICLAF       0.80      0.66      0.72       102
+      NIKMAZ       0.74      0.70      0.72        46
+      NYCDEV       0.42      0.33      0.37        24
+      OSCPIA       0.65      0.60      0.63        53
+      PIEGAS       0.77      0.70      0.73       322
+      ROMGRO       0.77      0.65      0.70        82
+      SEBVET       0.66      0.71      0.68       239
+      SERPER       0.73      0.73      0.73       277
+      VALBOT       0.77      0.80      0.78       250
+      YUKTSU       0.72      0.66      0.69       145
+
+    accuracy                           0.75      5878
+   macro avg       0.72      0.71      0.71      5878
+weighted avg       0.75      0.75      0.75      5878
+
+Logistic regression AUC-ROC: 0.9752555827108651
+############################ text_stft_spectrogram_mfccs results ##################################
+Macro F1 Score majority baseline: 0.005949924151867794
 /home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
   _warn_prf(average, modifier, msg_start, len(result))
 /home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
   _warn_prf(average, modifier, msg_start, len(result))
+              precision    recall  f1-score   support
+
+      ALEALB       0.00      0.00      0.00       214
+      ANTGIO       0.00      0.00      0.00        48
+      CARSAI       0.00      0.00      0.00       396
+      CHALEC       0.00      0.00      0.00       352
+      DANKVY       0.00      0.00      0.00        69
+      DANRIC       0.00      0.00      0.00       318
+      ESTOCO       0.00      0.00      0.00       251
+      FERALO       0.00      0.00      0.00       165
+      GEORUS       0.00      0.00      0.00       268
+      GUAZHO       0.00      0.00      0.00        95
+      KEVMAG       0.00      0.00      0.00       152
+      KIMRAI       0.00      0.00      0.00       117
+      LANNOR       0.00      0.00      0.00       353
+      LANSTR       0.00      0.00      0.00       235
+      LEWHAM       0.00      0.00      0.00       466
+      LOGSAR       0.00      0.00      0.00        52
+      MAXVER       0.09      1.00      0.17       555
+      MICSCH       0.00      0.00      0.00        88
+      NICHUL       0.00      0.00      0.00       144
+      NICLAF       0.00      0.00      0.00       102
+      NIKMAZ       0.00      0.00      0.00        46
+      NYCDEV       0.00      0.00      0.00        24
+      OSCPIA       0.00      0.00      0.00        53
+      PIEGAS       0.00      0.00      0.00       322
+      ROMGRO       0.00      0.00      0.00        82
+      SEBVET       0.00      0.00      0.00       239
+      SERPER       0.00      0.00      0.00       277
+      VALBOT       0.00      0.00      0.00       250
+      YUKTSU       0.00      0.00      0.00       145
+
+    accuracy                           0.09      5878
+   macro avg       0.00      0.03      0.01      5878
+weighted avg       0.01      0.09      0.02      5878
+
+/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Majority baseline AUC-ROC: 0.5
+Macro F1 Score stratified baseline: 0.03447039451792765
               precision    recall  f1-score   support
 
       ALEALB       0.04      0.04      0.04       214
       ANTGIO       0.02      0.02      0.02        48
-      BREHAR       0.00      0.00      0.00        10
-      CARSAI       0.05      0.05      0.05       396
+      CARSAI       0.05      0.06      0.05       396
       CHALEC       0.07      0.07      0.07       352
       DANKVY       0.00      0.00      0.00        69
-      DANRIC       0.06      0.06      0.06       318
-      ESTOCO       0.04      0.04      0.04       251
-      FERALO       0.01      0.01      0.01       165
-      GEORUS       0.05      0.05      0.05       268
+      DANRIC       0.06      0.07      0.06       318
+      ESTOCO       0.06      0.06      0.06       251
+      FERALO       0.03      0.04      0.04       165
+      GEORUS       0.05      0.04      0.04       268
       GUAZHO       0.01      0.01      0.01        95
-      ISAHAD       0.00      0.00      0.00         2
-      JACAIT       0.00      0.00      0.00         4
-      JACDOO       0.00      0.00      0.00         3
-      KEVMAG       0.05      0.05      0.05       152
-      KIMRAI       0.02      0.02      0.02       117
-      LANNOR       0.06      0.06      0.06       353
-      LANSTR       0.03      0.03      0.03       235
+      KEVMAG       0.01      0.01      0.01       152
+      KIMRAI       0.03      0.03      0.03       117
+      LANNOR       0.05      0.05      0.05       353
+      LANSTR       0.04      0.04      0.04       235
       LEWHAM       0.08      0.08      0.08       466
-      LIALAW       0.00      0.00      0.00        18
       LOGSAR       0.00      0.00      0.00        52
-      MARERI       0.00      0.00      0.00         3
-      MAXVER       0.08      0.09      0.08       555
-      MICSCH       0.02      0.02      0.02        88
-      NICHUL       0.03      0.03      0.03       144
+      MAXVER       0.10      0.10      0.10       555
+      MICSCH       0.01      0.01      0.01        88
+      NICHUL       0.02      0.02      0.02       144
       NICLAF       0.03      0.03      0.03       102
       NIKMAZ       0.00      0.00      0.00        46
       NYCDEV       0.00      0.00      0.00        24
       OSCPIA       0.00      0.00      0.00        53
-      PIEFIT       0.00      0.00      0.00         9
-      PIEGAS       0.08      0.08      0.08       323
-      ROBKUB       0.00      0.00      0.00        14
-      ROBSHW       0.00      0.00      0.00         3
-      ROMGRO       0.03      0.02      0.03        82
-      SEBVET       0.04      0.05      0.05       239
-      SERPER       0.04      0.03      0.03       277
-      SERSIR       0.00      0.00      0.00         3
-      STOVAN       0.00      0.00      0.00         5
+      PIEGAS       0.06      0.05      0.05       322
+      ROMGRO       0.00      0.00      0.00        82
+      SEBVET       0.05      0.05      0.05       239
+      SERPER       0.04      0.04      0.04       277
       VALBOT       0.04      0.04      0.04       250
-      YUKTSU       0.05      0.05      0.05       145
-
-    accuracy                           0.05      5953
-   macro avg       0.03      0.03      0.03      5953
-weighted avg       0.05      0.05      0.05      5953
-
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-F1 Score random baseline: 0.019740391763526356
-              precision    recall  f1-score   support
-
-      ALEALB       0.07      0.05      0.06       214
-      ANTGIO       0.02      0.06      0.03        48
-      BREHAR       0.00      0.00      0.00        10
-      CARSAI       0.06      0.02      0.03       396
-      CHALEC       0.07      0.03      0.04       352
-      DANKVY       0.00      0.00      0.00        69
-      DANRIC       0.05      0.03      0.03       318
-      ESTOCO       0.03      0.02      0.02       251
-      FERALO       0.03      0.03      0.03       165
-      GEORUS       0.05      0.03      0.03       268
-      GUAZHO       0.02      0.03      0.02        95
-      ISAHAD       0.00      0.00      0.00         2
-      JACAIT       0.00      0.00      0.00         4
-      JACDOO       0.00      0.00      0.00         3
-      KEVMAG       0.02      0.02      0.02       152
-      KIMRAI       0.02      0.03      0.03       117
-      LANNOR       0.03      0.01      0.02       353
-      LANSTR       0.04      0.02      0.03       235
-      LEWHAM       0.10      0.03      0.05       466
-      LIALAW       0.00      0.00      0.00        18
-      LOGSAR       0.01      0.04      0.02        52
-      MARERI       0.00      0.00      0.00         3
-      MAXVER       0.06      0.02      0.03       555
-      MICSCH       0.03      0.05      0.03        88
-      NICHUL       0.01      0.01      0.01       144
-      NICLAF       0.03      0.04      0.03       102
-      NIKMAZ       0.01      0.02      0.01        46
-      NYCDEV       0.00      0.00      0.00        24
-      OSCPIA       0.02      0.06      0.03        53
-      PIEFIT       0.00      0.00      0.00         9
-      PIEGAS       0.07      0.03      0.04       323
-      ROBKUB       0.01      0.07      0.01        14
-      ROBSHW       0.00      0.00      0.00         3
-      ROMGRO       0.02      0.04      0.03        82
-      SEBVET       0.02      0.02      0.02       239
-      SERPER       0.08      0.04      0.05       277
-      SERSIR       0.00      0.00      0.00         3
-      STOVAN       0.00      0.00      0.00         5
-      VALBOT       0.02      0.01      0.01       250
       YUKTSU       0.03      0.03      0.03       145
 
-    accuracy                           0.02      5953
-   macro avg       0.03      0.02      0.02      5953
-weighted avg       0.05      0.02      0.03      5953
+    accuracy                           0.05      5878
+   macro avg       0.03      0.03      0.03      5878
+weighted avg       0.05      0.05      0.05      5878
 
+Stratified baseline AUC-ROC: 0.5006541610894911
+Macro F1 Score random baseline: 0.03550288373190248
+              precision    recall  f1-score   support
+
+      ALEALB       0.04      0.04      0.04       214
+      ANTGIO       0.01      0.06      0.02        48
+      CARSAI       0.10      0.05      0.07       396
+      CHALEC       0.08      0.05      0.06       352
+      DANKVY       0.01      0.04      0.02        69
+      DANRIC       0.05      0.03      0.04       318
+      ESTOCO       0.05      0.04      0.04       251
+      FERALO       0.03      0.04      0.03       165
+      GEORUS       0.05      0.04      0.04       268
+      GUAZHO       0.01      0.03      0.02        95
+      KEVMAG       0.03      0.05      0.04       152
+      KIMRAI       0.04      0.06      0.05       117
+      LANNOR       0.09      0.05      0.07       353
+      LANSTR       0.04      0.03      0.04       235
+      LEWHAM       0.07      0.03      0.04       466
+      LOGSAR       0.00      0.02      0.01        52
+      MAXVER       0.07      0.03      0.04       555
+      MICSCH       0.02      0.05      0.03        88
+      NICHUL       0.01      0.02      0.02       144
+      NICLAF       0.01      0.02      0.01       102
+      NIKMAZ       0.01      0.04      0.02        46
+      NYCDEV       0.00      0.04      0.01        24
+      OSCPIA       0.02      0.06      0.03        53
+      PIEGAS       0.07      0.04      0.05       322
+      ROMGRO       0.01      0.02      0.01        82
+      SEBVET       0.06      0.05      0.06       239
+      SERPER       0.05      0.04      0.05       277
+      VALBOT       0.05      0.04      0.04       250
+      YUKTSU       0.03      0.04      0.03       145
+
+    accuracy                           0.04      5878
+   macro avg       0.04      0.04      0.04      5878
+weighted avg       0.06      0.04      0.04      5878
+
+Random baseline AUC-ROC: 0.5
 /home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:460: ConvergenceWarning: lbfgs failed to converge (status=1):
 STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
 
@@ -1019,366 +621,42 @@ Increase the number of iterations (max_iter) or scale the data as shown in:
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-Total time for fitting: 1177.6597 seconds
-F1 Score logistic regression: 0.3197301126436458
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
+Total time for fitting: 6341.4471 seconds
+Macro F1 Score logistic regression: 0.7126456737616637
               precision    recall  f1-score   support
 
-      ALEALB       0.42      0.39      0.40       214
-      ANTGIO       0.11      0.12      0.12        48
-      BREHAR       0.11      0.10      0.11        10
-      CARSAI       0.53      0.60      0.56       396
-      CHALEC       0.60      0.67      0.63       352
-      DANKVY       0.38      0.43      0.41        69
-      DANRIC       0.44      0.39      0.41       318
-      ESTOCO       0.45      0.40      0.43       251
-      FERALO       0.44      0.36      0.39       165
-      GEORUS       0.55      0.45      0.50       268
-      GUAZHO       0.54      0.45      0.49        95
-      ISAHAD       0.00      0.00      0.00         2
-      JACAIT       0.00      0.00      0.00         4
-      JACDOO       0.00      0.00      0.00         3
-      KEVMAG       0.26      0.20      0.23       152
-      KIMRAI       0.51      0.49      0.50       117
-      LANNOR       0.48      0.55      0.51       353
-      LANSTR       0.48      0.41      0.45       235
-      LEWHAM       0.62      0.78      0.69       466
-      LIALAW       0.00      0.00      0.00        18
-      LOGSAR       0.24      0.15      0.19        52
-      MARERI       0.00      0.00      0.00         3
-      MAXVER       0.64      0.75      0.69       555
-      MICSCH       0.33      0.24      0.28        88
-      NICHUL       0.35      0.31      0.33       144
-      NICLAF       0.43      0.41      0.42       102
-      NIKMAZ       0.29      0.24      0.26        46
-      NYCDEV       0.33      0.21      0.26        24
-      OSCPIA       0.43      0.42      0.42        53
-      PIEFIT       0.00      0.00      0.00         9
-      PIEGAS       0.56      0.55      0.56       323
-      ROBKUB       0.00      0.00      0.00        14
-      ROBSHW       0.00      0.00      0.00         3
-      ROMGRO       0.46      0.44      0.45        82
-      SEBVET       0.42      0.39      0.41       239
-      SERPER       0.43      0.41      0.42       277
-      SERSIR       0.00      0.00      0.00         3
-      STOVAN       0.50      0.20      0.29         5
-      VALBOT       0.55      0.57      0.56       250
-      YUKTSU       0.43      0.46      0.44       145
+      ALEALB       0.71      0.71      0.71       214
+      ANTGIO       0.62      0.54      0.58        48
+      CARSAI       0.78      0.77      0.78       396
+      CHALEC       0.81      0.82      0.81       352
+      DANKVY       0.67      0.81      0.74        69
+      DANRIC       0.71      0.68      0.69       318
+      ESTOCO       0.72      0.69      0.70       251
+      FERALO       0.69      0.65      0.67       165
+      GEORUS       0.74      0.68      0.71       268
+      GUAZHO       0.73      0.74      0.73        95
+      KEVMAG       0.65      0.58      0.61       152
+      KIMRAI       0.80      0.84      0.82       117
+      LANNOR       0.78      0.82      0.80       353
+      LANSTR       0.74      0.71      0.72       235
+      LEWHAM       0.83      0.92      0.87       466
+      LOGSAR       0.69      0.90      0.78        52
+      MAXVER       0.86      0.89      0.87       555
+      MICSCH       0.64      0.62      0.63        88
+      NICHUL       0.64      0.67      0.66       144
+      NICLAF       0.79      0.65      0.71       102
+      NIKMAZ       0.73      0.70      0.71        46
+      NYCDEV       0.43      0.38      0.40        24
+      OSCPIA       0.66      0.62      0.64        53
+      PIEGAS       0.76      0.69      0.72       322
+      ROMGRO       0.76      0.67      0.71        82
+      SEBVET       0.66      0.70      0.68       239
+      SERPER       0.71      0.73      0.72       277
+      VALBOT       0.78      0.81      0.80       250
+      YUKTSU       0.70      0.66      0.68       145
 
-    accuracy                           0.50      5953
-   macro avg       0.33      0.31      0.32      5953
-weighted avg       0.49      0.50      0.49      5953
+    accuracy                           0.75      5878
+   macro avg       0.72      0.71      0.71      5878
+weighted avg       0.75      0.75      0.75      5878
 
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-############################ text_stft_spectrogram_mfccs_pitches_energy results ##################################
-F1 Score majority baseline: 0.0042639827904118
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-              precision    recall  f1-score   support
-
-      ALEALB       0.00      0.00      0.00       214
-      ANTGIO       0.00      0.00      0.00        48
-      BREHAR       0.00      0.00      0.00        10
-      CARSAI       0.00      0.00      0.00       396
-      CHALEC       0.00      0.00      0.00       352
-      DANKVY       0.00      0.00      0.00        69
-      DANRIC       0.00      0.00      0.00       318
-      ESTOCO       0.00      0.00      0.00       251
-      FERALO       0.00      0.00      0.00       165
-      GEORUS       0.00      0.00      0.00       268
-      GUAZHO       0.00      0.00      0.00        95
-      ISAHAD       0.00      0.00      0.00         2
-      JACAIT       0.00      0.00      0.00         4
-      JACDOO       0.00      0.00      0.00         3
-      KEVMAG       0.00      0.00      0.00       152
-      KIMRAI       0.00      0.00      0.00       117
-      LANNOR       0.00      0.00      0.00       353
-      LANSTR       0.00      0.00      0.00       235
-      LEWHAM       0.00      0.00      0.00       466
-      LIALAW       0.00      0.00      0.00        18
-      LOGSAR       0.00      0.00      0.00        52
-      MARERI       0.00      0.00      0.00         3
-      MAXVER       0.09      1.00      0.17       555
-      MICSCH       0.00      0.00      0.00        88
-      NICHUL       0.00      0.00      0.00       144
-      NICLAF       0.00      0.00      0.00       102
-      NIKMAZ       0.00      0.00      0.00        46
-      NYCDEV       0.00      0.00      0.00        24
-      OSCPIA       0.00      0.00      0.00        53
-      PIEFIT       0.00      0.00      0.00         9
-      PIEGAS       0.00      0.00      0.00       323
-      ROBKUB       0.00      0.00      0.00        14
-      ROBSHW       0.00      0.00      0.00         3
-      ROMGRO       0.00      0.00      0.00        82
-      SEBVET       0.00      0.00      0.00       239
-      SERPER       0.00      0.00      0.00       277
-      SERSIR       0.00      0.00      0.00         3
-      STOVAN       0.00      0.00      0.00         5
-      VALBOT       0.00      0.00      0.00       250
-      YUKTSU       0.00      0.00      0.00       145
-
-    accuracy                           0.09      5953
-   macro avg       0.00      0.03      0.00      5953
-weighted avg       0.01      0.09      0.02      5953
-
-F1 Score stratified baseline: 0.026325591367863277
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-              precision    recall  f1-score   support
-
-      ALEALB       0.04      0.04      0.04       214
-      ANTGIO       0.00      0.00      0.00        48
-      BREHAR       0.00      0.00      0.00        10
-      CARSAI       0.09      0.09      0.09       396
-      CHALEC       0.05      0.05      0.05       352
-      DANKVY       0.00      0.00      0.00        69
-      DANRIC       0.07      0.07      0.07       318
-      ESTOCO       0.06      0.06      0.06       251
-      FERALO       0.04      0.04      0.04       165
-      GEORUS       0.06      0.06      0.06       268
-      GUAZHO       0.01      0.01      0.01        95
-      ISAHAD       0.00      0.00      0.00         2
-      JACAIT       0.00      0.00      0.00         4
-      JACDOO       0.00      0.00      0.00         3
-      KEVMAG       0.04      0.04      0.04       152
-      KIMRAI       0.02      0.03      0.02       117
-      LANNOR       0.04      0.04      0.04       353
-      LANSTR       0.05      0.05      0.05       235
-      LEWHAM       0.09      0.09      0.09       466
-      LIALAW       0.00      0.00      0.00        18
-      LOGSAR       0.02      0.02      0.02        52
-      MARERI       0.00      0.00      0.00         3
-      MAXVER       0.10      0.10      0.10       555
-      MICSCH       0.01      0.01      0.01        88
-      NICHUL       0.03      0.03      0.03       144
-      NICLAF       0.02      0.02      0.02       102
-      NIKMAZ       0.00      0.00      0.00        46
-      NYCDEV       0.00      0.00      0.00        24
-      OSCPIA       0.00      0.00      0.00        53
-      PIEFIT       0.00      0.00      0.00         9
-      PIEGAS       0.05      0.05      0.05       323
-      ROBKUB       0.00      0.00      0.00        14
-      ROBSHW       0.00      0.00      0.00         3
-      ROMGRO       0.01      0.01      0.01        82
-      SEBVET       0.02      0.02      0.02       239
-      SERPER       0.05      0.05      0.05       277
-      SERSIR       0.00      0.00      0.00         3
-      STOVAN       0.00      0.00      0.00         5
-      VALBOT       0.06      0.06      0.06       250
-      YUKTSU       0.02      0.02      0.02       145
-
-    accuracy                           0.05      5953
-   macro avg       0.03      0.03      0.03      5953
-weighted avg       0.05      0.05      0.05      5953
-
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-F1 Score random baseline: 0.02018821895193228
-              precision    recall  f1-score   support
-
-      ALEALB       0.04      0.03      0.03       214
-      ANTGIO       0.01      0.02      0.01        48
-      BREHAR       0.00      0.00      0.00        10
-      CARSAI       0.08      0.03      0.04       396
-      CHALEC       0.04      0.01      0.02       352
-      DANKVY       0.02      0.04      0.03        69
-      DANRIC       0.04      0.02      0.03       318
-      ESTOCO       0.05      0.03      0.04       251
-      FERALO       0.04      0.04      0.04       165
-      GEORUS       0.07      0.04      0.05       268
-      GUAZHO       0.01      0.02      0.02        95
-      ISAHAD       0.00      0.00      0.00         2
-      JACAIT       0.00      0.00      0.00         4
-      JACDOO       0.00      0.00      0.00         3
-      KEVMAG       0.03      0.03      0.03       152
-      KIMRAI       0.01      0.02      0.02       117
-      LANNOR       0.10      0.04      0.06       353
-      LANSTR       0.02      0.01      0.02       235
-      LEWHAM       0.08      0.02      0.04       466
-      LIALAW       0.00      0.00      0.00        18
-      LOGSAR       0.01      0.04      0.02        52
-      MARERI       0.00      0.00      0.00         3
-      MAXVER       0.09      0.02      0.03       555
-      MICSCH       0.00      0.00      0.00        88
-      NICHUL       0.02      0.03      0.03       144
-      NICLAF       0.02      0.03      0.02       102
-      NIKMAZ       0.01      0.02      0.01        46
-      NYCDEV       0.00      0.00      0.00        24
-      OSCPIA       0.02      0.06      0.03        53
-      PIEFIT       0.00      0.00      0.00         9
-      PIEGAS       0.10      0.06      0.07       323
-      ROBKUB       0.01      0.14      0.03        14
-      ROBSHW       0.00      0.00      0.00         3
-      ROMGRO       0.00      0.00      0.00        82
-      SEBVET       0.05      0.03      0.04       239
-      SERPER       0.04      0.02      0.03       277
-      SERSIR       0.00      0.00      0.00         3
-      STOVAN       0.00      0.00      0.00         5
-      VALBOT       0.03      0.02      0.02       250
-      YUKTSU       0.01      0.01      0.01       145
-
-    accuracy                           0.03      5953
-   macro avg       0.03      0.02      0.02      5953
-weighted avg       0.05      0.03      0.03      5953
-
-############################ text_stft_spectrogram_mfccs_pitches_energy results ##################################
-F1 Score majority baseline: 0.0042639827904118
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/home/apapadoi/anaconda3/envs/nlp-sequence-classification/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-              precision    recall  f1-score   support
-
-      ALEALB       0.00      0.00      0.00       214
-      ANTGIO       0.00      0.00      0.00        48
-      BREHAR       0.00      0.00      0.00        10
-      CARSAI       0.00      0.00      0.00       396
-      CHALEC       0.00      0.00      0.00       352
-      DANKVY       0.00      0.00      0.00        69
-      DANRIC       0.00      0.00      0.00       318
-      ESTOCO       0.00      0.00      0.00       251
-      FERALO       0.00      0.00      0.00       165
-      GEORUS       0.00      0.00      0.00       268
-      GUAZHO       0.00      0.00      0.00        95
-      ISAHAD       0.00      0.00      0.00         2
-      JACAIT       0.00      0.00      0.00         4
-      JACDOO       0.00      0.00      0.00         3
-      KEVMAG       0.00      0.00      0.00       152
-      KIMRAI       0.00      0.00      0.00       117
-      LANNOR       0.00      0.00      0.00       353
-      LANSTR       0.00      0.00      0.00       235
-      LEWHAM       0.00      0.00      0.00       466
-      LIALAW       0.00      0.00      0.00        18
-      LOGSAR       0.00      0.00      0.00        52
-      MARERI       0.00      0.00      0.00         3
-      MAXVER       0.09      1.00      0.17       555
-      MICSCH       0.00      0.00      0.00        88
-      NICHUL       0.00      0.00      0.00       144
-      NICLAF       0.00      0.00      0.00       102
-      NIKMAZ       0.00      0.00      0.00        46
-      NYCDEV       0.00      0.00      0.00        24
-      OSCPIA       0.00      0.00      0.00        53
-      PIEFIT       0.00      0.00      0.00         9
-      PIEGAS       0.00      0.00      0.00       323
-      ROBKUB       0.00      0.00      0.00        14
-      ROBSHW       0.00      0.00      0.00         3
-      ROMGRO       0.00      0.00      0.00        82
-      SEBVET       0.00      0.00      0.00       239
-      SERPER       0.00      0.00      0.00       277
-      SERSIR       0.00      0.00      0.00         3
-      STOVAN       0.00      0.00      0.00         5
-      VALBOT       0.00      0.00      0.00       250
-      YUKTSU       0.00      0.00      0.00       145
-
-    accuracy                           0.09      5953
-   macro avg       0.00      0.03      0.00      5953
-weighted avg       0.01      0.09      0.02      5953
-
-F1 Score stratified baseline: 0.023878635841998508
-              precision    recall  f1-score   support
-
-      ALEALB       0.04      0.04      0.04       214
-      ANTGIO       0.00      0.00      0.00        48
-      BREHAR       0.00      0.00      0.00        10
-      CARSAI       0.07      0.07      0.07       396
-      CHALEC       0.06      0.06      0.06       352
-      DANKVY       0.00      0.00      0.00        69
-      DANRIC       0.08      0.07      0.07       318
-      ESTOCO       0.06      0.06      0.06       251
-      FERALO       0.02      0.02      0.02       165
-      GEORUS       0.04      0.04      0.04       268
-      GUAZHO       0.02      0.02      0.02        95
-      ISAHAD       0.00      0.00      0.00         2
-      JACAIT       0.00      0.00      0.00         4
-      JACDOO       0.00      0.00      0.00         3
-      KEVMAG       0.01      0.01      0.01       152
-      KIMRAI       0.02      0.02      0.02       117
-      LANNOR       0.07      0.08      0.08       353
-      LANSTR       0.04      0.04      0.04       235
-      LEWHAM       0.09      0.09      0.09       466
-      LIALAW       0.00      0.00      0.00        18
-      LOGSAR       0.00      0.00      0.00        52
-      MARERI       0.00      0.00      0.00         3
-      MAXVER       0.12      0.11      0.12       555
-      MICSCH       0.02      0.02      0.02        88
-      NICHUL       0.01      0.01      0.01       144
-      NICLAF       0.00      0.00      0.00       102
-      NIKMAZ       0.00      0.00      0.00        46
-      NYCDEV       0.00      0.00      0.00        24
-      OSCPIA       0.02      0.02      0.02        53
-      PIEFIT       0.00      0.00      0.00         9
-      PIEGAS       0.04      0.04      0.04       323
-      ROBKUB       0.00      0.00      0.00        14
-      ROBSHW       0.00      0.00      0.00         3
-      ROMGRO       0.00      0.00      0.00        82
-      SEBVET       0.03      0.03      0.03       239
-      SERPER       0.03      0.03      0.03       277
-      SERSIR       0.00      0.00      0.00         3
-      STOVAN       0.00      0.00      0.00         5
-      VALBOT       0.07      0.06      0.07       250
-      YUKTSU       0.01      0.01      0.01       145
-
-    accuracy                           0.05      5953
-   macro avg       0.02      0.02      0.02      5953
-weighted avg       0.05      0.05      0.05      5953
-
-F1 Score random baseline: 0.020798993737670503
-              precision    recall  f1-score   support
-
-      ALEALB       0.01      0.00      0.01       214
-      ANTGIO       0.01      0.04      0.02        48
-      BREHAR       0.00      0.00      0.00        10
-      CARSAI       0.07      0.03      0.04       396
-      CHALEC       0.05      0.02      0.03       352
-      DANKVY       0.02      0.03      0.02        69
-      DANRIC       0.06      0.03      0.04       318
-      ESTOCO       0.03      0.02      0.03       251
-      FERALO       0.06      0.05      0.06       165
-      GEORUS       0.04      0.02      0.03       268
-      GUAZHO       0.02      0.04      0.03        95
-      ISAHAD       0.00      0.00      0.00         2
-      JACAIT       0.00      0.00      0.00         4
-      JACDOO       0.00      0.00      0.00         3
-      KEVMAG       0.01      0.01      0.01       152
-      KIMRAI       0.01      0.02      0.01       117
-      LANNOR       0.06      0.03      0.04       353
-      LANSTR       0.04      0.03      0.03       235
-      LEWHAM       0.10      0.03      0.05       466
-      LIALAW       0.01      0.06      0.01        18
-      LOGSAR       0.01      0.02      0.01        52
-      MARERI       0.00      0.00      0.00         3
-      MAXVER       0.09      0.02      0.03       555
-      MICSCH       0.03      0.07      0.05        88
-      NICHUL       0.03      0.03      0.03       144
-      NICLAF       0.00      0.00      0.00       102
-      NIKMAZ       0.01      0.02      0.01        46
-      NYCDEV       0.01      0.04      0.01        24
-      OSCPIA       0.01      0.02      0.01        53
-      PIEFIT       0.00      0.00      0.00         9
-      PIEGAS       0.06      0.02      0.03       323
-      ROBKUB       0.00      0.00      0.00        14
-      ROBSHW       0.00      0.00      0.00         3
-      ROMGRO       0.02      0.04      0.02        82
-      SEBVET       0.06      0.04      0.05       239
-      SERPER       0.06      0.03      0.04       277
-      SERSIR       0.00      0.00      0.00         3
-      STOVAN       0.00      0.00      0.00         5
-      VALBOT       0.06      0.04      0.05       250
-      YUKTSU       0.03      0.03      0.03       145
-
-    accuracy                           0.03      5953
-   macro avg       0.03      0.02      0.02      5953
-weighted avg       0.05      0.03      0.03      5953
-
+Logistic regression AUC-ROC: 0.9752974603469854

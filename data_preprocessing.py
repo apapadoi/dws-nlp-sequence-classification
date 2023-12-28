@@ -14,9 +14,9 @@ df = df_without_na.drop_duplicates(subset=['text', 'label'])
 print(f'Processed df shape: {df.shape}')
 
 label_counts = df.label.value_counts()
-less_than_10_occurrences = label_counts[label_counts < 10].index.tolist()
+less_than_100_occurrences = label_counts[label_counts < 100].index.tolist()
 
-filtered_df = df[~df.label.isin(less_than_10_occurrences)]
+filtered_df = df[~df.label.isin(less_than_100_occurrences)]
 
 splitted_features = filtered_df.features.str.split(',', expand=True).astype(float)
 
