@@ -1,0 +1,16 @@
+Initial number of classes: 53
+Num of rows containing NaN: 3646
+Df without NaN shape: (30475, 3)
+Total duplicate rows: 660
+Processed df shape: (29815, 3)
+
+Statistics about the number of floats per row:
+count    29390.0
+mean      2192.0
+std          0.0
+min       2192.0
+25%       2192.0
+50%       2192.0
+75%       2192.0
+max       2192.0
+Name: floats_per_row_count, dtype: float64
