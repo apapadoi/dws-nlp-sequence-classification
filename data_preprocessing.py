@@ -1,6 +1,7 @@
 import pandas as pd
 
 df = pd.read_csv('data.csv')
+print(f'Initial number of classes: {len(df.label.unique().tolist())}')
 
 df_without_na = df.dropna()
 print(f'Num of rows containing NaN: {df.shape[0] - df_without_na.shape[0]}')

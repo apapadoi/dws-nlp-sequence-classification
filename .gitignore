@@ -5,3 +5,4 @@ data (copy).csv
 data_processed.csv
 
 *.pth
+*.zip

@@ -22,6 +22,8 @@ dataset_description_list = [
     'text_stft',
     'text_stft_spectrogram',
     'text_stft_spectrogram_mfccs',
+    # 'text_stft_spectrogram_mfccs_pitches',
+    # 'text_stft_spectrogram_mfccs_pitches_energy'
 ]
 
 for dataset_description in dataset_description_list:
